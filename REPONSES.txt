@@ -1,0 +1,6 @@
+
+SEMAINE 1:
+    P1.1 :  
+    - Nous avons décidé de représenter nos vecteurs avec... ...des vecteurs. Pour nous, cette approche est la meilleure, car elle permet une gestion non seulement la plus facile, mais elle est aussi très bien adaptée à un changement dans un autre système de dimensions.
+    - Il y a un attribut central, le vecteur "vect", qui nous donne les variables des 3 dimensions. Il n'y a rien besoin de plus comme attributs.
+    - Il y a 3 méthodes; la méthode set_coord(), qui prend un "unsigned int", qui détermine quelle variable va être changée, et un "double"
