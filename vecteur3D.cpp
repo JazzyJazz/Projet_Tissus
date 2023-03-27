@@ -1,74 +1,152 @@
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <cmath>
+#include "vecteur3D.h"
 using namespace std;
 
+/*
 class Vecteur3D{
     private:
         vector<double> vect;
     public:
+
         Vecteur3D(double x = 0, double y = 0, double z = 0){
             vect.push_back(x);
             vect.push_back(y);
             vect.push_back(z);
         }
 
-        void set_coord(unsigned int pos, double x){
-            vect[pos] = x;
-        }
+        void set_coord(unsigned int, double);
 
-        void affiche() const{
-            cout << "(" << vect[0] << ", " << vect[1] << ", " << vect[2] << ")" << endl;
-        }
+        vector<double> get_vect() const;
 
-        bool compare(Vecteur3D Vect2){
-            for(int i(0); i < vect.size(); i++){
-                if(vect[i] != Vect2.vect[i]){
-                    return false;
-                }
-            }
-            return true;
-        }
+        double norme2() const;
 
-        vector<double> get_vect(){
-            return vect;
-        }
+        double norme() const;
 
-        // Opérations
+        // Opérateurs basiques
 
-        Vecteur3D add(Vecteur3D Vect2) const{
-            return Vecteur3D(vect[0]+Vect2.vect[0], vect[1]+Vect2.vect[1], vect[2]+Vect2.vect[2]);
-        }
+        bool operator==(Vecteur3D Vect2) const;
 
-        Vecteur3D soust(Vecteur3D Vect2) const{
-            return Vecteur3D(vect[0]-Vect2.vect[0], vect[1]-Vect2.vect[1], vect[2]-Vect2.vect[2]);
-        }
+        Vecteur3D operator+(Vecteur3D Vect2) const;
 
-        Vecteur3D opp() const{
-            return Vecteur3D(-vect[0], -vect[1], -vect[2]);
-        }
+        Vecteur3D operator-(Vecteur3D Vect2) const;
 
-        Vecteur3D mult(double a) const{
-            return Vecteur3D(a*vect[0], a*vect[1], a*vect[2]);
-        }
+        Vecteur3D operator-() const;
 
-        double prod_scal(Vecteur3D Vect2) const{
-            return vect[0]*Vect2.vect[0] + vect[1]*Vect2.vect[1] + vect[2]*Vect2.vect[2];
-        }
+        Vecteur3D operator*(double a) const;
 
-        Vecteur3D prod_vect(Vecteur3D Vect2) const{
-            return Vecteur3D(vect[1]*Vect2.vect[2]-vect[2]*Vect2.vect[1], vect[2]*Vect2.vect[0]-vect[0]*Vect2.vect[2], vect[0]*Vect2.vect[1]-vect[1]*Vect2.vect[0]);
-        }
+        double operator*(Vecteur3D Vect2) const;
 
-        double norme2() const{
-            return prod_scal(*this);
-        }
+        Vecteur3D operator^(Vecteur3D Vect2) const;
 
-        double norme() const{
-            return sqrt(norme2());
-        }
+        Vecteur3D operator~() const;
 
-        Vecteur3D unitaire() const{
-            return mult(1.0/norme())
-        }
+        bool operator!=(Vecteur3D Vect2) const;
+
+        Vecteur3D& operator+=(Vecteur3D Vect2);
+
+        Vecteur3D& operator-=(Vecteur3D Vect2);
+
+        Vecteur3D& operator*=(double a);
+
+        Vecteur3D& operator^=(Vecteur3D Vect2);
+
 };
+
+
+// Méthodes
+
+void Vecteur3D::set_coord(unsigned int pos, double x){
+    vect[pos] = x;
+}
+
+vector<double> Vecteur3D::get_vect() const{
+    return vect;
+}
+
+double Vecteur3D::norme2() const{
+    return (*this)*(*this);
+}
+
+double Vecteur3D::norme() const{
+    return sqrt(norme2());
+}
+
+// Opérateurs externes
+
+ostream& operator<<(ostream& sortie, Vecteur3D& Vect2){
+    sortie << "(" << Vect2.get_vect()[0] << ", " << Vect2.get_vect()[1] << ", " << Vect2.get_vect()[2] << ")" << endl;
+    return sortie;
+}
+
+Vecteur3D operator*(double a, Vecteur3D& Vect2){
+    return Vect2*a;
+}
+
+
+// Opérateurs internes
+
+// Opérateurs basiques
+
+bool Vecteur3D::operator==(Vecteur3D Vect2) const{
+    for(int i(0); i < vect.size(); i++){
+        if(vect[i] != Vect2.vect[i]){
+            return false;
+        }
+    }
+    return true;
+}
+
+Vecteur3D Vecteur3D::operator+(Vecteur3D Vect2) const{
+    return Vecteur3D(vect[0]+Vect2.vect[0], vect[1]+Vect2.vect[1], vect[2]+Vect2.vect[2]);
+}
+
+Vecteur3D Vecteur3D::operator-(Vecteur3D Vect2) const{
+    return Vecteur3D(vect[0]-Vect2.vect[0], vect[1]-Vect2.vect[1], vect[2]-Vect2.vect[2]);
+}
+
+Vecteur3D Vecteur3D::operator-() const{
+    return Vecteur3D(-vect[0], -vect[1], -vect[2]);
+}
+
+Vecteur3D Vecteur3D::operator*(double a) const{
+    return Vecteur3D(a*vect[0], a*vect[1], a*vect[2]);
+}
+
+double Vecteur3D::operator*(Vecteur3D Vect2) const{
+    return vect[0]*Vect2.vect[0] + vect[1]*Vect2.vect[1] + vect[2]*Vect2.vect[2];
+}
+
+Vecteur3D Vecteur3D::operator^(Vecteur3D Vect2) const{
+    return Vecteur3D(vect[1]*Vect2.vect[2]-vect[2]*Vect2.vect[1], vect[2]*Vect2.vect[0]-vect[0]*Vect2.vect[2], vect[0]*Vect2.vect[1]-vect[1]*Vect2.vect[0]);
+}
+
+Vecteur3D Vecteur3D::operator~() const{
+    return (*this)*(1.0/norme());
+}
+
+// Opérateurs dérivés
+
+bool Vecteur3D::operator!=(Vecteur3D Vect2) const{
+    return not(*this == Vect2);
+}
+
+Vecteur3D& Vecteur3D::operator+=(Vecteur3D Vect2){
+    return *this = *this + Vect2;
+}
+
+Vecteur3D& Vecteur3D::operator-=(Vecteur3D Vect2){
+    return *this = *this - Vect2;
+}
+
+Vecteur3D& Vecteur3D::operator*=(double a){
+    return *this = *this * a;
+}
+
+Vecteur3D& Vecteur3D::operator^=(Vecteur3D Vect2){
+    return *this = (*this ^ Vect2);
+}
+
+#endif
+*/

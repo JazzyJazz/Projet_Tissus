@@ -1,5 +1,6 @@
 #include <iostream>
-#include <vecteur3D>
+#include "vecteur3D.h"
+using namespace std;
 
 int main(){
     Vecteur3D vect1;
@@ -20,28 +21,6 @@ int main(){
     vect2.set_coord(2, 4.1); 
 
     vect3 = vect1;
-
-    cout << "Vecteur 1 : ";
-    vect1.affiche();
-    cout << endl;
-
-    cout << "Vecteur 2 : ";
-    vect2.affiche();
-    cout << endl;
-
-    cout << "Le vecteur 1 est ";
-    if (vect1.compare(vect2)) {
-        cout << "égal au";
-    } else {
-        cout << "différent du";
-    }
-    cout << " vecteur 2," << endl << "et est ";
-    if (not vect1.compare(vect3)) {
-        cout << "différent du";
-    } else {
-        cout << "égal au";
-    }
-    cout << " vecteur 3." << endl;
 
     return 0;
 }

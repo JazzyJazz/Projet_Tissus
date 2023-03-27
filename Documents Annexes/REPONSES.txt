@@ -1,0 +1,26 @@
+
+SEMAINE 1:
+    P1.1 :  
+    - Nous avons décidé de représenter nos vecteurs avec... ...des vecteurs. Pour nous, cette approche est la meilleure, car elle permet une gestion non seulement la plus facile, mais elle est aussi très bien adaptée à un changement dans un autre système de dimensions.
+    - Il y a un attribut central, le vecteur "vect", qui nous donne les variables des 3 dimensions. Il n'y a rien besoin de plus comme attributs pour représenter le vecteur3D.
+    - Il y a 4 méthodes; 
+        - La méthode set_coord(), qui prend un "unsigned int" et un "double", qui déterminent quelle dimension va être changée et la variable mise dans cette dimension du vecteur. Ceci est très pratique vu qu'on stocke nos valeurs dans un vecteur.
+        - La méthode affiche(), qui retourne juste de manière jolie les valeurs dans le vecteur.
+        - La méthode compare(), qui prend un Vecteur3D en paramètre, et qui boucle sur chaque dimension des vecteurs pour regarder si les valeurs sont les mêmes. Si elles ne le sont pas, les 2 vecteurs sont obligatoirement différents, sur nimporte quelle dimension !. La boucle est très pratique si l'on souhaite ajouter des dimensions, et évite du copiage de code.
+        - La méthode get_vect(), qui retourne simplement le vecteur. Ceci est besoin si on souhaite faire une bonne encapsulation du programme.
+    - Pour les droits d'accès, il y a juste le vecteur représentatif qui est privé (la méthode get_vect() est suffisante pour y accèder). Tout le reste est, de nature, publique, car il sert d'interface avec l'utilisateur.
+
+SEMAINE 2:
+    Aucune question...
+
+SEMAINE 3:
+    P4.1 :
+    - Nous n'avons pas ajouté un constructeur de copie, car le constructeur de copie par défaut est suffisant dans notre cas (pas besoin de copie profonde)
+    
+    P4.2.a: 
+    - Pour que le programme soit le plus facile à manier, il faudrait ajouter des nouveaux attributs où l'on pourrait stocker les informations sur les 2 angles et la longeur du vecteur. On aurait donc deux définition différentes d'un vecteur, ce qui n'est vraiment pas pratique.
+    P4.2.b:
+    - Comme les angles et la longueur du vecteur sont des "double", le prototype du constructeur serait "Vecteur3D(double a1, double a2, double l)" (par exemple). Or, comme nous avons déjà un autre constructeur prenant 3 double en paramètre, on aurait deux définitons d'un constructeur, ce qui est impossible en C++. Il faudrait donc restreindre une des variables, ce qui nous permet pas de créer tous les vecteurs possibles.
+
+    P4.3 :
+    - Nous avons ajouté les opérateurs == (compare()) et != (inverse de ==) pour les vecteurs, et l'opérateur externe << (affiche()) pour pouvoir afficher facilement les vecteurs.

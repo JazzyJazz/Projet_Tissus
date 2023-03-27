@@ -1,9 +1,0 @@
-Semaine 1 :
-- Lecture de la présentation du projet.
-- Création du Git et de tous les fichiers nécessaires.
-- Organisation et "répartition" des tâches à réaliser
-
-Semaine 2 :
--
--
--
