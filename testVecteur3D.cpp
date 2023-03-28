@@ -22,5 +22,11 @@ int main(){
 
     vect3 = vect1;
 
+    cout << vect1 << " + " << vect2 << " = ";
+
+    vect2 += vect1;
+
+    cout << vect2;
+
     return 0;
 }

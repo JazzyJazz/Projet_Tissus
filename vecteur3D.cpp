@@ -4,56 +4,20 @@
 #include "vecteur3D.h"
 using namespace std;
 
-/*
-class Vecteur3D{
-    private:
-        vector<double> vect;
-    public:
 
-        Vecteur3D(double x = 0, double y = 0, double z = 0){
-            vect.push_back(x);
-            vect.push_back(y);
-            vect.push_back(z);
-        }
+// Constructeurs
 
-        void set_coord(unsigned int, double);
+Vecteur3D::Vecteur3D(){
+    vect.push_back(0);
+    vect.push_back(0);
+    vect.push_back(0);
+}
 
-        vector<double> get_vect() const;
-
-        double norme2() const;
-
-        double norme() const;
-
-        // Opérateurs basiques
-
-        bool operator==(Vecteur3D Vect2) const;
-
-        Vecteur3D operator+(Vecteur3D Vect2) const;
-
-        Vecteur3D operator-(Vecteur3D Vect2) const;
-
-        Vecteur3D operator-() const;
-
-        Vecteur3D operator*(double a) const;
-
-        double operator*(Vecteur3D Vect2) const;
-
-        Vecteur3D operator^(Vecteur3D Vect2) const;
-
-        Vecteur3D operator~() const;
-
-        bool operator!=(Vecteur3D Vect2) const;
-
-        Vecteur3D& operator+=(Vecteur3D Vect2);
-
-        Vecteur3D& operator-=(Vecteur3D Vect2);
-
-        Vecteur3D& operator*=(double a);
-
-        Vecteur3D& operator^=(Vecteur3D Vect2);
-
-};
-
+Vecteur3D::Vecteur3D(double x, double y, double z){
+    vect.push_back(x);
+    vect.push_back(y);
+    vect.push_back(z);
+}
 
 // Méthodes
 
@@ -76,7 +40,7 @@ double Vecteur3D::norme() const{
 // Opérateurs externes
 
 ostream& operator<<(ostream& sortie, Vecteur3D& Vect2){
-    sortie << "(" << Vect2.get_vect()[0] << ", " << Vect2.get_vect()[1] << ", " << Vect2.get_vect()[2] << ")" << endl;
+    sortie << "(" << Vect2.get_vect()[0] << ", " << Vect2.get_vect()[1] << ", " << Vect2.get_vect()[2] << ")";
     return sortie;
 }
 
@@ -147,6 +111,3 @@ Vecteur3D& Vecteur3D::operator*=(double a){
 Vecteur3D& Vecteur3D::operator^=(Vecteur3D Vect2){
     return *this = (*this ^ Vect2);
 }
-
-#endif
-*/
