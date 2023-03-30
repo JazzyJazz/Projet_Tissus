@@ -24,3 +24,7 @@ SEMAINE 3:
 
     P4.3 :
     - Nous avons ajouté les opérateurs == (compare()) et != (inverse de ==) pour les vecteurs, et l'opérateur externe << (affiche()) pour pouvoir afficher facilement les vecteurs.
+    
+    
+    P5.1 :
+    - Nous avons créer un vector de la classe Ressort pour facilement pouvoir stocker et utiliser tous les ressorts qui seront liés à la masse.
