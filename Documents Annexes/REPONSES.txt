@@ -28,3 +28,10 @@ SEMAINE 3:
     
     P5.1 :
     - Nous avons créer un vector de la classe Ressort pour facilement pouvoir stocker et utiliser tous les ressorts qui seront liés à la masse.
+
+SEMAINE 4:
+    P7.1 :
+    - La classe Integrateur est la classe mère de tous les intégrateurs que l'ont va créer. Ainsi, il doit avoir les caractéristiques des intégrateurs, c'est à dire un nom (protégée), et une méthode evolve() (publique).
+
+    P7.2 :
+    - Comme dit précédement, la classe IntegrateurEulerCromer est héritée de la classe Integrateur.
