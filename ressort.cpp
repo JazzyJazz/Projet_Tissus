@@ -44,7 +44,7 @@ ostream& operator<<(ostream& s, Ressort const& r){
 		s<<&Ressort<<endl;
 	}s << "# masse depart : Masse "<< &masse_a <<":";
 	s << masse_a << endl;
-	for (i(0); i < masse_ä.liste_ressort.size(); ++i){
+	for (i(0); i < masse_a.liste_ressort.size(); ++i){
 		s<<&Ressort<<endl;
 	}
 	
