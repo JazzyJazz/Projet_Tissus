@@ -3,9 +3,8 @@
 #include <cmath>
 #include "vecteur3D.h"
 #include "masse.h"
+#include "ressort.h"
 using namespace std;
-
-Vecteur3D Ressort::force_rappel(){return Vecteur3D();}
 
 // Accesseurs
 Vecteur3D Masse::get_position() const {return position;}
@@ -38,7 +37,7 @@ Vecteur3D Masse::acceleration(){
 void Masse::mise_a_jour_forces(){
 	Vecteur3D v = Vecteur3D();
 	for (auto& elem : liste_ressort) {
-		v += elem.force_rappel();
+		v += elem.force_rappel(*this);
 	}
 	force_subie = (v+Vecteur3D(0,0,-9.81*masse)-(coeff*vitesse));
 }

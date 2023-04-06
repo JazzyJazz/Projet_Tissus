@@ -24,8 +24,8 @@ class Ressort{
 		
 		//méthode
 		Vecteur3D force_rappel(Masse const&);
-	
-		//opérateur
-		Ressort& operator <<() const;
 		
 };
+
+//opérateur d'affichage
+std::ostream& operator<<(std::ostream&, Ressort const&);

@@ -21,14 +21,22 @@ testVecteur3D.o: testVecteur3D.cpp vecteur3D.h
 vecteur3D.o: vecteur3D.cpp vecteur3D.h
 
 #testM
-testM: testMasse.o masse.o vecteur3D.o
-	$(CXX) -o testM testMasse.o masse.o vecteur3D.o -v
+testM: testMasse.o masse.o vecteur3D.o ressort.o
+	$(CXX) -o testM testMasse.o masse.o vecteur3D.o ressort.o
 
-testMasse.o: testMasse.cpp masse.h vecteur3D.h
+testMasse.o: testMasse.cpp masse.h vecteur3D.h ressort.h
 
-masse.o: masse.cpp vecteur3D.h
+masse.o: masse.cpp vecteur3D.h ressort.h
 
-#testInt
+#testR
+testR: testRessort.o masse.o vecteur3D.o ressort.o
+	$(CXX) -o testM testMasse.o masse.o vecteur3D.o ressort.o
+
+testRessort.o: testRessort.cpp ressort.h masse.h vecteur3D.h
+
+ressort.o: ressort.cpp masse.h vecteur3D.h
+
+#testI
 testInt: testIntegrateur1.o masse.o
 	$(CXX) -o testInt testIntegrateur1.o masse.o
 

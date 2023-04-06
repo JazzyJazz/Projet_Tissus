@@ -2,11 +2,6 @@
 #include "vecteur3D.h"
 #include <vector>
 
-class Ressort{
-	public:
-		Vecteur3D force_rappel();
-};
-
 class Masse{
 	private:
 		Vecteur3D position;
