@@ -34,6 +34,11 @@ class Masse{
 		Vecteur3D acceleration();
 
 		void mise_a_jour_forces();
+
+		//Opérateurs logiques
+		bool operator==(Masse const&);
+
+		bool operator!=(Masse const&);
 };
 
 std::ostream& operator<<(std::ostream& s, Masse const& m);
