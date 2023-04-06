@@ -39,7 +39,7 @@ double Vecteur3D::norme() const{
 
 // Opérateurs externes
 
-ostream& operator<<(ostream& sortie, Vecteur3D& Vect2){
+ostream& operator<<(ostream& sortie, Vecteur3D const& Vect2){
     sortie << "(" << Vect2.get_vect()[0] << ", " << Vect2.get_vect()[1] << ", " << Vect2.get_vect()[2] << ")";
     return sortie;
 }

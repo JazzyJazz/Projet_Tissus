@@ -21,10 +21,10 @@ testVecteur3D.o: testVecteur3D.cpp vecteur3D.h
 vecteur3D.o: vecteur3D.cpp vecteur3D.h
 
 #testM
-testM: testMasse.o masse.o
-	$(CXX) -o testM testMasse.o masse.o
+testM: testMasse.o masse.o vecteur3D.o
+	$(CXX) -o testM testMasse.o masse.o vecteur3D.o -v
 
-testMasse.o: testMasse.cpp masse.h
+testMasse.o: testMasse.cpp masse.h vecteur3D.h
 
 masse.o: masse.cpp vecteur3D.h
 

@@ -52,6 +52,6 @@ class Vecteur3D{
 
 };
 
-std::ostream& operator<<(std::ostream&, Vecteur3D&);
+std::ostream& operator<<(std::ostream&, Vecteur3D const&);
 
 Vecteur3D operator*(double, Vecteur3D&);
