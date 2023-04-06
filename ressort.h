@@ -24,5 +24,8 @@ class Ressort{
 		
 		//méthode
 		Vecteur3D force_rappel(Masse const&);
+	
+		//opérateur
+		Ressort& operator <<();
 		
 };
