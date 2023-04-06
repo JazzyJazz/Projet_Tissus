@@ -1,6 +1,7 @@
+#pragma once
 #include <string>
 #include "masse.h"
-#pragma once
+
 
 class Integrateur{
     protected:

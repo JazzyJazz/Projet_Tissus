@@ -21,9 +21,8 @@ void Masse::set_masse(double m_){
 }
 
 
-// Constructeur
+// Constructeurs
 Masse::Masse(Vecteur3D pos, Vecteur3D vit, double m, double coeffi, vector<Ressort>& ressorts):position(pos), vitesse(vit), masse(m), coeff(coeffi), force_subie({0,0,-9.81*m}), liste_ressort(ressorts){}
-
 
 // Méthodes
 void Masse::ajoute_force(Vecteur3D const& df){

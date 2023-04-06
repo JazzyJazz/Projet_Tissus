@@ -1,5 +1,6 @@
 #pragma once
 #include "vecteur3D.h"
+#include "ressort.h"
 #include <vector>
 
 class Masse{
@@ -25,7 +26,7 @@ class Masse{
 		void set_masse(double);
 		// modifier les autres valeurs n'a pas de sens
 
-		// Constructeur
+		// Constructeurs
 		Masse(Vecteur3D, Vecteur3D, double, double, std::vector<Ressort>&);
 
 		// Méthodes
