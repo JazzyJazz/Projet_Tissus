@@ -16,19 +16,21 @@ void Ressort::set_masse_d(Masse d){masse_d = d;}
 void Ressort::set_masse_a(Masse a){masse_a = a;}
 
 //constructeur
-Masse::Masse(Masse D, Masse A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){}
+Ressort::Ressort(Masse D, Masse A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){}
 
 //méthode
-Vecteur3D::force_rappel(Masse m){
+Vecteur3D Ressort::force_rappel(Masse m){
 	double distance;
 	double norme_force;
-	distance = (norme(masse_d.position - masse_a.position));
+	distance = ((masse_d.position - masse_a.position).norme());
 	norme_force = k*(distance - l0);
 	if ((m != masse_a) and (m != masse_d)){
 		return 0;
 	}else if (m == masse_a){
-		
+		return{norme_force*(~(masse_a.position - masse_d.position))
 	}else{
-		
+		return{norme_force*(~(mass_d.position - masse_d.position))
 	}
 }
+
+//surcharge
