@@ -20,7 +20,7 @@ void Masse::set_masse(double m_){
 	if (m_ > 0){masse = m_;}
 }
 
-//Bonjour
+
 // Constructeur
 Masse::Masse(Vecteur3D pos, Vecteur3D vit, double m, double coeffi, vector<Ressort>& ressorts):position(pos), vitesse(vit), masse(m), coeff(coeffi), force_subie({0,0,-9.81*m}), liste_ressort(ressorts){}
 
