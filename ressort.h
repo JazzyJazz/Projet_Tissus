@@ -1,6 +1,7 @@
 #pragma once
 #include "vecteur3D.h"
 #include "masse.h"
+#include <vector>
 
 class Ressort{
 	private:

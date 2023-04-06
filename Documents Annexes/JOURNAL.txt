@@ -16,3 +16,6 @@ Semaine 4 :
 - Adaptation de toutes les méthodes de Vecteur3D pour faire des opérateurs (plus simple d'utilisation) + tests
 - Remplissage des réponses et de la conception
 - 
+Semaine 5 : 
+- Création du code qui définit la class Masse et tous ces méthodes,attributs et opérateurs (Masse.h, masse.cpp, masse.o) et adaptation du Makefile.
+- Création du code qui définit la class Ressort et tous ces attributs,opérateurs et méthode (Ressort.h, Ressort.cpp, Ressort) et modification du Makefile.
