@@ -10,7 +10,7 @@ CXXFLAGS += -pedantic -Wall       # pour les purs et durs
 # CXXFLAGS += -g                  # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
-all: testM 
+all: testI 
 
 #testV
 testV: testVecteur3D.o vecteur3D.o
@@ -37,7 +37,9 @@ testRessort.o: testRessort.cpp ressort.h masse.h vecteur3D.h
 ressort.o: ressort.cpp masse.h vecteur3D.h
 
 #testI
-testInt: testIntegrateur1.o masse.o
-	$(CXX) -o testInt testIntegrateur1.o masse.o
+testI: testIntegrateur1.o integrateur.o masse.o vecteur3D.o ressort.o
+	$(CXX) -o testI testIntegrateur1.o integrateur.o masse.o vecteur3D.o ressort.o
 
-testIntegrateur1.o: testIntegrateur1.cpp testIntegrateur1.h vecteur3D.h
+testIntegrateur1.o: testIntegrateur1.cpp masse.h vecteur3D.h ressort.h
+
+integrateur.o: integrateur.cpp integrateur.h masse.h vecteur3D.h ressort.h
