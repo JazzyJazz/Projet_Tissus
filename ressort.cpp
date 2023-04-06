@@ -33,4 +33,20 @@ Vecteur3D Ressort::force_rappel(Masse m){
 	}
 }
 
-//surcharge
+//surcharge de l'opérateur affiche
+ostream& operator<<(ostream& s, Ressort const& r){
+	s << "Ressort " << this << " :"<<endl;
+	s << k << " # cst raideur" <<endl;
+	s << l0 << " # longueur au repos"<<endl;
+	s << "# masse depart : Masse "<< &masse_d <<":";
+	s << masse_d << endl;
+	for (i(0); i < masse_d.liste_ressort.size(); ++i){
+		s<<&Ressort<<endl;
+	}s << "# masse depart : Masse "<< &masse_a <<":";
+	s << masse_a << endl;
+	for (i(0); i < masse_a.liste_ressort.size(); ++i){
+		s<<&Ressort<<endl;
+	}
+	
+	return s;
+}
