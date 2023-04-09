@@ -12,9 +12,6 @@ Masse* Ressort::get_masse_d() const{return masse_d;}
 double Ressort::get_k() const{return k;}
 double Ressort::get_l0() const{return l0;}
 
-void Ressort::set_masse_d(Masse* const& D){masse_d = D;}
-void Ressort::set_masse_a(Masse* const& A){masse_a = A;}
-
 //constructeur
 Ressort::Ressort(Masse* D, Masse* A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){}
 

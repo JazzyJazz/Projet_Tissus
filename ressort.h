@@ -20,9 +20,6 @@ class Ressort{
 		double get_k() const;
 		double get_l0() const;
 		
-		void set_masse_d(Masse* const&);
-		void set_masse_a(Masse* const&);
-		
 		//constructeur
 		Ressort(Masse*, Masse*, double, double);
 		
