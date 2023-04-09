@@ -1,4 +1,6 @@
 #pragma once
+#ifndef VECTEUR3D_H
+#define VECTEUR3D_H
 #include <vector>
 
 
@@ -56,3 +58,5 @@ class Vecteur3D{
 std::ostream& operator<<(std::ostream&, Vecteur3D const&);
 
 Vecteur3D operator*(double, Vecteur3D const&);
+
+#endif

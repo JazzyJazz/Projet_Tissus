@@ -44,7 +44,7 @@ ostream& operator<<(ostream& sortie, Vecteur3D const& Vect2){
     return sortie;
 }
 
-Vecteur3D operator*(double a, Vecteur3D& Vect2){
+Vecteur3D operator*(double a, Vecteur3D const& Vect2){
     return Vect2*a;
 }
 

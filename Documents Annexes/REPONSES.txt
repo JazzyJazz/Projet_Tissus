@@ -27,7 +27,7 @@ SEMAINE 3:
     
     
     P5.1 :
-    - Nous avons créer un vector de la classe Ressort pour facilement pouvoir stocker et utiliser tous les ressorts qui seront liés à la masse.
+    - Nous avons créer un vector de la classe Ressort* (tableau de pointeurs sur les ressorts) pour facilement pouvoir stocker et utiliser tous les ressorts qui seront liés à la masse. Les pointeurs sont nécessaires pour pouvoir accèder aux ressorts eux-mêmes, et pas à une copie de ceux-ci.
 
 SEMAINE 4:
     P7.1 :

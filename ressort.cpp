@@ -7,28 +7,31 @@
 using namespace std;
 
 //accsesseurs
-Masse Ressort::get_masse_a() const{return masse_a;}
-Masse Ressort::get_masse_d() const{return masse_d;}
+Masse* Ressort::get_masse_a() const{return masse_a;}
+Masse* Ressort::get_masse_d() const{return masse_d;}
 double Ressort::get_k() const{return k;}
 double Ressort::get_l0() const{return l0;}
 
+void Ressort::set_masse_d(Masse& D){masse_d = &D;}
+void Ressort::set_masse_a(Masse& A){masse_a = &A;}
+
 //constructeur
-Ressort::Ressort(Masse D, Masse A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){}
+Ressort::Ressort(Masse* D, Masse* A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){}
 
 //méthode
 Vecteur3D Ressort::force_rappel(Masse const& m){
 	double distance;
 	double norme_force;
-	distance = ((masse_d.get_position() - masse_a.get_position()).norme());
+	distance = (((*masse_d).get_position() - (*masse_a).get_position()).norme());
 	norme_force = k*(distance - l0);
-	if ((masse_a != m) and (masse_d != m)){
+	if ((*masse_a != m) and (*masse_d != m)){
 		return Vecteur3D();
 	}
-	else if (masse_a == m){
-		return norme_force*(~(masse_a.get_position() - masse_d.get_position()));
+	else if ((*masse_a) == m){
+		return norme_force*(~((*masse_a).get_position() - (*masse_d).get_position()));
 	}
 	else{
-		return norme_force*(~(masse_d.get_position() - masse_d.get_position()));
+		return norme_force*(~((*masse_d).get_position() - (*masse_d).get_position()));
 	}
 }
 
@@ -38,16 +41,18 @@ ostream& operator<<(ostream& s, Ressort const& r){
 	s << "Ressort " << &r << " :" << endl;
 	s << r.get_k() << " # cst raideur" << endl;
 	s << r.get_l0() << " # longueur au repos" << endl;
-	s << "# masse depart : Masse "<< &(r.get_masse_d()) << ":";
-	s << r.get_masse_d() << endl;
-	for (int i(0); i < r.get_masse_d().get_ressorts().size(); ++i){
-		s << &(r.get_masse_d().get_ressorts()[i]) << endl;
+	s << "# masse depart : Masse " << r.get_masse_d() << ":" << endl;
+	s << *(r.get_masse_d());
+	for (int i(0); i < (*(r.get_masse_d())).get_ressorts().size(); ++i){
+		s << &((*(r.get_masse_d())).get_ressorts()[i]) << endl;
 	}
-	s << "# masse depart : Masse "<< &r.get_masse_a() <<":";
-	s << r.get_masse_a() << endl;
-	for (int i(0); i < r.get_masse_a().get_ressorts().size(); ++i){
-		s << &(r.get_masse_a().get_ressorts()[i]) << endl;
+	s << endl;
+	s << "# masse arrivée : Masse " << r.get_masse_a() << ":" << endl;
+	s << *(r.get_masse_a());
+	for (int i(0); i < (*(r.get_masse_a())).get_ressorts().size(); ++i){
+		s << &((*(r.get_masse_a())).get_ressorts()[i]) << endl;
 	}
+	s << endl;
 	
 	return s;
 }
