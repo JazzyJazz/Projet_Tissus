@@ -2,8 +2,6 @@
 #ifndef MASSE_H
 #define MASSE_H
 #include "vecteur3D.h"
-
-
 #include <vector>
 
 class Ressort;
@@ -13,7 +11,7 @@ class Masse{
 		Vecteur3D position;
 		Vecteur3D vitesse;
 		double masse;
-		const double coeff;
+		double coeff;
 		Vecteur3D force_subie;
 		std::vector<Ressort*> liste_ressort;
 
@@ -24,11 +22,13 @@ class Masse{
 		double get_masse() const;
 		double get_coeff() const;
 		Vecteur3D get_force_subie() const;
-		std::vector<Ressort*> get_ressorts() const;
+		std::vector<Ressort*> const& get_ressorts() const;
 
 		void set_position(Vecteur3D);
 		void set_vitesse(Vecteur3D);
 		void set_masse(double);
+		void set_coeff(double);
+		void set_force(Vecteur3D);
 		void add_ressort(Ressort* const&);
 		// modifier les autres valeurs n'a pas de sens
 
