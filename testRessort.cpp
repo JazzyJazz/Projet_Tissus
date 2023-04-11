@@ -12,12 +12,9 @@ int main(){
 
     // Ressort 1
     Ressort* r1 = new Ressort(m1, m2, 3, 1);
-    m1->add_ressort(r1);
-    m2->add_ressort(r1);
+    
     // Ressort 2
     Ressort* r2 = new Ressort(m2, m3, 1, 0);
-    m2->add_ressort(r2);
-    m3->add_ressort(r2);
 
     m2->set_position(Vecteur3D(42, 42, 42));
     m2->set_force(Vecteur3D(42, 42, 42));

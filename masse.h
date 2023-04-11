@@ -13,6 +13,7 @@ class Masse{
 		double masse;
 		double coeff;
 		Vecteur3D force_subie;
+		Vecteur3D force_add;
 		std::vector<Ressort*> liste_ressort;
 
 	public:
@@ -28,7 +29,6 @@ class Masse{
 		void set_vitesse(Vecteur3D);
 		void set_masse(double);
 		void set_coeff(double);
-		void set_force(Vecteur3D);
 		void add_ressort(Ressort* const&);
 		// modifier les autres valeurs n'a pas de sens
 

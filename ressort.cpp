@@ -13,7 +13,10 @@ double Ressort::get_k() const{return k;}
 double Ressort::get_l0() const{return l0;}
 
 //constructeur
-Ressort::Ressort(Masse* D, Masse* A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){}
+Ressort::Ressort(Masse* D, Masse* A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){
+	D->add_ressort(this);
+	A->add_ressort(this);
+}
 
 //méthode
 Vecteur3D Ressort::force_rappel(Masse* const& m){

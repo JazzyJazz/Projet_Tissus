@@ -22,7 +22,6 @@ void Masse::set_masse(double m_){
 void Masse::set_coeff(double c_){
 	if (c_ > 0){coeff = c_;}
 }
-void Masse::set_force(Vecteur3D for_){force_subie = for_;}
 void Masse::add_ressort(Ressort* const& ressort){liste_ressort.push_back(ressort);}
 
 
@@ -31,7 +30,7 @@ Masse::Masse(double m, Vecteur3D pos, Vecteur3D vit, double coeffi, vector<Resso
 
 // Méthodes
 void Masse::ajoute_force(Vecteur3D const& df){
-	force_subie += df;
+	force_add = df;
 }
 
 Vecteur3D Masse::acceleration(){
@@ -41,9 +40,10 @@ Vecteur3D Masse::acceleration(){
 void Masse::mise_a_jour_forces(){
 	Vecteur3D v = Vecteur3D();
 	for (auto& elem : liste_ressort) {
-		v += (*elem).force_rappel(this);
+		v += elem->force_rappel(this);
 	}
-	force_subie = (v + Vecteur3D(0,0,-9.81*masse)-(coeff*vitesse));
+	force_subie = v + Vecteur3D(0,0,-9.81*masse)-(coeff*vitesse) + force_add;
+	force_add = Vecteur3D();
 }
 
 bool Masse::operator==(Masse const& m1){
@@ -59,9 +59,9 @@ bool Masse::operator!=(Masse const& m1){
 
 ostream& operator<<(ostream& s, Masse const& m){
 	s << "- Masse : " << m.get_masse() << endl;
+	s << "- Coefficient : " << m.get_coeff() << endl;
 	s << "- Position : " << m.get_position() << endl;
 	s << "- Vitesse : " << m.get_vitesse() << endl;
-	s << "- Coefficient : " << m.get_coeff() << endl;
 	s << "- Résultante des forces" << m.get_force_subie() << endl;
 	s << "- Ressorts : " << (m.get_ressorts()).size() << endl;
 	return s;
