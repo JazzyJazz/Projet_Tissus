@@ -37,9 +37,9 @@ testRessort.o: testRessort.cpp vecteur3D.h masse.h ressort.h
 ressort.o: ressort.cpp vecteur3D.h masse.h ressort.h
 
 #testI
-testI: testIntegrateur2.o vecteur3D.o masse.o ressort.o integrateur.o
-	$(CXX) -o testI testIntegrateur2.o vecteur3D.o masse.o ressort.o integrateur.o
+testI: testIntegrateur3.o vecteur3D.o masse.o ressort.o integrateur.o
+	$(CXX) -o testI testIntegrateur3.o vecteur3D.o masse.o ressort.o integrateur.o
 
-testIntegrateur2.o: testIntegrateur2.cpp vecteur3D.h masse.h ressort.h
+testIntegrateur3.o: testIntegrateur3.cpp vecteur3D.h masse.h ressort.h
 
 integrateur.o: integrateur.cpp vecteur3D.h masse.h ressort.h integrateur.h

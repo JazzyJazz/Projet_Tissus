@@ -17,9 +17,11 @@ int main(){
     Ressort* r2 = new Ressort(m2, m3, 1, 0);
 
     m2->set_position(Vecteur3D(42, 42, 42));
-    m2->set_force(Vecteur3D(42, 42, 42));
+    m2->ajoute_force(Vecteur3D(42, 42, 42));
     m2->set_vitesse(Vecteur3D(42, 42, 42));
     m2->set_coeff(0.3);
+
+    cout << *r1 << endl << endl;
 
     cout << "Force ressort " << r1 << " sur masse " << m1 << " : " << r1->force_rappel(m1) << endl;
     cout << "Force ressort " << r1 << " sur masse " << m2 << " : " << r1->force_rappel(m2) << endl;

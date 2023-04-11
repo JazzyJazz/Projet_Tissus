@@ -64,5 +64,8 @@ ostream& operator<<(ostream& s, Masse const& m){
 	s << "- Vitesse : " << m.get_vitesse() << endl;
 	s << "- Résultante des forces" << m.get_force_subie() << endl;
 	s << "- Ressorts : " << (m.get_ressorts()).size() << endl;
+	for (auto& elem : m.get_ressorts()) {
+		s << elem << endl;
+	}
 	return s;
 }

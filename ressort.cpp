@@ -43,14 +43,7 @@ ostream& operator<<(ostream& s, Ressort const& r){
 	s << r.get_l0() << " # longueur au repos" << endl;
 	s << "# masse depart : Masse " << r.get_masse_d() << ":" << endl;
 	s << *(r.get_masse_d());
-	for (auto& elem : (*(r.get_masse_d())).get_ressorts()) {
-		s << elem << endl;
-	}
 	s << "# masse arrivée : Masse " << r.get_masse_a() << ":" << endl;
 	s << *(r.get_masse_a());
-	for (auto& elem : (*(r.get_masse_a())).get_ressorts()) {
-		s << elem << endl;
-	}
-	
 	return s;
 }
