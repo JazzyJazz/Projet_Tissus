@@ -33,7 +33,7 @@ class Masse{
 		// modifier les autres valeurs n'a pas de sens
 
 		// Constructeurs
-		Masse(double, Vecteur3D = Vecteur3D(), Vecteur3D = Vecteur3D(), double = 0, std::vector<Ressort*> const& = std::vector<Ressort*>());
+		Masse(double, Vecteur3D = Vecteur3D(), Vecteur3D = Vecteur3D(), double = 0);
 
 		// Méthodes
 		void ajoute_force(Vecteur3D const&);

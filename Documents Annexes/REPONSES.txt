@@ -35,3 +35,7 @@ SEMAINE 4:
 
     P7.2 :
     - Comme dit précédement, la classe IntegrateurEulerCromer est héritée de la classe Integrateur.
+
+SEMAINE 5:
+    P8.1 :
+    - Nous avons créé les méthodes publiques : connecte(), connecte_masses() et la méthode privée check(). Les méthodes connecte() et connecte_masses() doivent être publiques si l'on veut ajouter des ressorts dans le tissu, et connecter les ressorts au masses lorsque l'utilisateur finit de créer tous ses ressorts. La méthode check() sera simplement utilisée pour vérifier le tissu originel, et ne sera pas réutilisé par la suite, d'où son inaccéssibilité à l'utilisateur.

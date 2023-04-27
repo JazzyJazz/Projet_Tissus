@@ -26,7 +26,7 @@ void Masse::add_ressort(Ressort* const& ressort){liste_ressort.push_back(ressort
 
 
 // Constructeurs
-Masse::Masse(double m, Vecteur3D pos, Vecteur3D vit, double coeffi, vector<Ressort*> const& ressorts):position(pos), vitesse(vit), masse(abs(m)), coeff(coeffi), force_subie({0,0,-9.81*m}), liste_ressort(ressorts){}
+Masse::Masse(double m, Vecteur3D pos, Vecteur3D vit, double coeffi):position(pos), vitesse(vit), masse(abs(m)), coeff(coeffi), force_subie({0,0,-9.81*m}){}
 
 // Méthodes
 void Masse::ajoute_force(Vecteur3D const& df){
