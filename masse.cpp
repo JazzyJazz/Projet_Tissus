@@ -5,6 +5,7 @@
 #include "vecteur3D.h"
 #include "masse.h"
 #include "ressort.h"
+
 using namespace std;
 
 // Accesseurs

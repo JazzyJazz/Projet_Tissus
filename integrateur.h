@@ -4,6 +4,7 @@
 #define INTEGRATEUR_H
 
 #include <string>
+
 #include "masse.h"
 
 

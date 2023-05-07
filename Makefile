@@ -10,7 +10,7 @@ CXXFLAGS += -pedantic -Wall       # pour les purs et durs
 # CXXFLAGS += -g                  # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
-all: testMasse
+all: testM
 
 #testV
 testV: testVecteur3D.o vecteur3D.o
@@ -20,42 +20,43 @@ testVecteur3D.o: testVecteur3D.cpp vecteur3D.h
 
 vecteur3D.o: vecteur3D.cpp vecteur3D.h
 
+# dessinable
+dessinable.o: dessinable.cpp dessinable.h
+
 #testM
-testM: testMasse.o vecteur3D.o masse.o ressort.o dessinable.o
-	$(CXX) -o testM testMasse.o vecteur3D.o masse.o ressort.o dessinable.o
+testM: testMasse.o vecteur3D.o dessinable.o masse.o ressort.o 
+	$(CXX) -o testM testMasse.o vecteur3D.o dessinable.o masse.o ressort.o 
 
-testMasse.o: testMasse.cpp vecteur3D.h masse.h ressort.h
+testMasse.o: testMasse.cpp vecteur3D.h dessinable.h masse.h ressort.h
 
-masse.o: masse.cpp vecteur3D.h masse.h ressort.h dessinable.h
+masse.o: masse.cpp vecteur3D.h dessinable.h masse.h ressort.h 
 
 #testR
-testR: testRessort.o vecteur3D.o masse.o ressort.o
-	$(CXX) -o testR testRessort.o vecteur3D.o masse.o ressort.o
+testR: testRessort.o vecteur3D.o dessinable.o masse.o ressort.o
+	$(CXX) -o testR testRessort.o vecteur3D.o dessinable.o masse.o ressort.o
 
-testRessort.o: testRessort.cpp vecteur3D.h masse.h ressort.h
+testRessort.o: testRessort.cpp vecteur3D.h dessinable.h masse.h ressort.h
 
-ressort.o: ressort.cpp vecteur3D.h masse.h ressort.h
+ressort.o: ressort.cpp vecteur3D.h dessinable.h masse.h ressort.h
 
 #testI
-testI: testIntegrateur3.o vecteur3D.o masse.o ressort.o integrateur.o
-	$(CXX) -o testI testIntegrateur3.o vecteur3D.o masse.o ressort.o integrateur.o
+testI: testIntegrateur3.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o
+	$(CXX) -o testI testIntegrateur3.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o
 
-testIntegrateur3.o: testIntegrateur3.cpp vecteur3D.h masse.h ressort.h integrateur.h
+testIntegrateur3.o: testIntegrateur3.cpp vecteur3D.h dessinable.h masse.h ressort.h integrateur.h
 
-integrateur.o: integrateur.cpp vecteur3D.h masse.h ressort.h integrateur.h
+integrateur.o: integrateur.cpp vecteur3D.h dessinable.h masse.h ressort.h integrateur.h
 
 #testTissu
-testTissuS: testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
-	$(CXX) -o testTissuS testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
+testTissuS: testTissuS.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o
+	$(CXX) -o testTissuS testTissuS.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o
 
-testTissuS.o: testTissuS.cpp vecteur3D.h masse.h ressort.h tissuS.h
+testTissuS.o: testTissuS.cpp vecteur3D.h dessinable.h masse.h ressort.h tissuS.h
 
-tissuS.o: tissuS.cpp vecteur3D.h masse.h ressort.h integrateur.h tissuS.h dessinable.h
+tissuS.o: tissuS.cpp vecteur3D.h dessinable.h masse.h ressort.h integrateur.h tissuS.h
 
 #testSys
-testSys: testSys.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
-	$(CXX) -o testSys testSys.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
+testSys: testSys.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o
+	$(CXX) -o testSys testSys.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o 
 
-testSys.o: exerciceP9.cpp vecteur3D.h masse.h ressort.h tissuS.h dessinable.h
-
-dessinable.o: dessinable.cpp vecteur3D.h masse.h ressort.h integrateur.h tissuS.h
+testSys.o: exerciceP9.cpp vecteur3D.h dessinable.h masse.h ressort.h tissuS.h

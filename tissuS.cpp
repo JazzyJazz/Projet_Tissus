@@ -3,8 +3,8 @@
 #include "vecteur3D.h"
 #include "masse.h"
 #include "ressort.h"
-#include "tissuS.h"
 #include "integrateur.h"
+#include "tissuS.h"
 
 
 using namespace std;

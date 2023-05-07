@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 
 #include "vecteur3D.h"
 #include "masse.h"

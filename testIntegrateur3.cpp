@@ -1,9 +1,10 @@
-#include "integrateur.h"
-#include "masse.h"
-#include "vecteur3D.h"
-#include "ressort.h"
-#include <vector>
 #include <iostream>
+#include <vector>
+
+#include "vecteur3D.h"
+#include "masse.h"
+#include "ressort.h"
+#include "integrateur.h"
 
 using namespace std;
 

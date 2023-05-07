@@ -5,10 +5,9 @@
 
 #include <vector>
 
-#include "vecteur3D.h"
+#include "dessinable.h"
 #include "masse.h"
 #include "ressort.h"
-#include "dessinable.h"
 
 
 struct Ressort_Temp{

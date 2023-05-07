@@ -3,16 +3,9 @@
 #ifndef DESSINABLE_H
 #define DESSINABLE_H
 
-#include <vector>
-
-#include "masse.h"
-#include "tissuS.h"
-
-
-class Dessinable{
-    public:
-        virtual void dessine_sur(SupportADessin&) = 0;
-};
+class Masse;
+class TissuS;
+class Systeme;
 
 class SupportADessin{
 public:
@@ -22,17 +15,9 @@ public:
     virtual void dessine(Masse const&) = 0;
 };
 
-class Systeme : public Dessinable{
-    private:
-        std::vector<TissuS*> tissus;
+class Dessinable{
     public:
-        Systeme(std::vector<TissuS*>);
-
-        virtual void dessine_sur(SupportADessin&) override;
-
-        std::vector<TissuS*> get_tissus() const;
+        virtual void dessine_sur(SupportADessin&) = 0;
 };
-
-std::ostream& operator<<(std::ostream&, Systeme const&);
 
 #endif

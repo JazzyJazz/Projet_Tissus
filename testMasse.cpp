@@ -1,7 +1,8 @@
-#include "masse.h"
-#include "vecteur3D.h"
 #include <iostream>
 #include <vector>
+
+#include "vecteur3D.h"
+#include "masse.h"
 
 using namespace std;
 

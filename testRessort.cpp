@@ -1,8 +1,10 @@
+#include <iostream>
+#include <vector>
+
 #include "vecteur3D.h"
 #include "masse.h"
 #include "ressort.h"
-#include <iostream>
-#include <vector>
+
 using namespace std;
 
 int main(){
