@@ -45,9 +45,9 @@ testIntegrateur3.o: testIntegrateur3.cpp vecteur3D.h masse.h ressort.h integrate
 integrateur.o: integrateur.cpp vecteur3D.h masse.h ressort.h integrateur.h
 
 #testTissu
-testTissuS: testTissuS.o vecteur3D.o masse.o ressort.o tissuS.o
-	$(CXX) -o testTissuS testTissuS.o vecteur3D.o masse.o ressort.o tissuS.o
+testTissuS: testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o
+	$(CXX) -o testTissuS testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o
 
 testTissuS.o: testTissuS.cpp vecteur3D.h masse.h ressort.h tissuS.h
 
-tissuS.o: tissuS.cpp vecteur3D.h masse.h ressort.h tissuS.h
+tissuS.o: tissuS.cpp vecteur3D.h masse.h ressort.h integrateur.h tissuS.h

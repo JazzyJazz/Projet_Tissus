@@ -18,5 +18,6 @@ int main(){
     tissu.connecte(1, 2, 2.5, 0);
     tissu.connecte(2, 0, 1.25, 0.5);
     tissu.connecte_masses();
+    tissu.evolve(0.1);
     return 0;
 }

@@ -66,6 +66,7 @@ void TissuS::maj_forces(){
 
 void TissuS::evolve(double dt){
     IntegrateurEulerCromer i;
+    maj_forces();
     for(Masse* masse : masses){
         i.evolve(*masse, dt);
     }
