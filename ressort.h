@@ -1,6 +1,8 @@
 #pragma once
+
 #ifndef RESSORT_H
 #define RESSORT_H
+
 #include "vecteur3D.h"
 #include "masse.h"
 

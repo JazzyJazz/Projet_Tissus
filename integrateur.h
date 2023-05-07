@@ -1,4 +1,8 @@
 #pragma once
+
+#ifndef INTEGRATEUR_H
+#define INTEGRATEUR_H
+
 #include <string>
 #include "masse.h"
 
@@ -14,3 +18,5 @@ class IntegrateurEulerCromer : public Integrateur{
     public:
         void evolve(Masse&, double) const override;
 };
+
+#endif

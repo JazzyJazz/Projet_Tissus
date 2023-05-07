@@ -1,5 +1,5 @@
 
-SEMAINE 1:
+ETAPE 1:
     P1.1 :  
     - Nous avons décidé de représenter nos vecteurs avec... ...des vecteurs. Pour nous, cette approche est la meilleure, car elle permet une gestion non seulement la plus facile, mais elle est aussi très bien adaptée à un changement dans un autre système de dimensions.
     - Il y a un attribut central, le vecteur "vect", qui nous donne les variables des 3 dimensions. Il n'y a rien besoin de plus comme attributs pour représenter le vecteur3D.
@@ -10,10 +10,10 @@ SEMAINE 1:
         - La méthode get_vect(), qui retourne simplement le vecteur. Ceci est besoin si on souhaite faire une bonne encapsulation du programme.
     - Pour les droits d'accès, il y a juste le vecteur représentatif qui est privé (la méthode get_vect() est suffisante pour y accèder). Tout le reste est, de nature, publique, car il sert d'interface avec l'utilisateur.
 
-SEMAINE 2:
+ETAPE 2:
     Aucune question...
 
-SEMAINE 3:
+ETAPE 3:
     P4.1 :
     - Nous n'avons pas ajouté un constructeur de copie, car le constructeur de copie par défaut est suffisant dans notre cas (pas besoin de copie profonde)
     
@@ -29,13 +29,20 @@ SEMAINE 3:
     P5.1 :
     - Nous avons créer un vector de la classe Ressort* (tableau de pointeurs sur les ressorts) pour facilement pouvoir stocker et utiliser tous les ressorts qui seront liés à la masse. Les pointeurs sont nécessaires pour pouvoir accèder aux ressorts eux-mêmes, et pas à une copie de ceux-ci.
 
-SEMAINE 4:
+ETAPE 4:
     P7.1 :
     - La classe Integrateur est la classe mère de tous les intégrateurs que l'ont va créer. Ainsi, il doit avoir les caractéristiques des intégrateurs, c'est à dire un nom (protégée), et une méthode evolve() (publique).
 
     P7.2 :
     - Comme dit précédement, la classe IntegrateurEulerCromer est héritée de la classe Integrateur.
 
-SEMAINE 5:
+
     P8.1 :
-    - Nous avons créé les méthodes publiques : connecte(), connecte_masses() et la méthode privée check(). Les méthodes connecte() et connecte_masses() doivent être publiques si l'on veut ajouter des ressorts dans le tissu, et connecter les ressorts au masses lorsque l'utilisateur finit de créer tous ses ressorts. La méthode check() sera simplement utilisée pour vérifier le tissu originel, et ne sera pas réutilisé par la suite, d'où son inaccéssibilité à l'utilisateur.
+    - Nous avons créé les méthodes publiques : connecte(), connecte_masses(), et la méthode privée check(). Les méthodes connecte() et connecte_masses() doivent être publiques si l'on veut ajouter des ressorts dans le tissu, et connecter les ressorts au masses lorsque l'utilisateur finit de créer tous ses ressorts. La méthode check() sera simplement utilisée pour vérifier le tissu originel, et ne sera pas réutilisé par la suite, d'où son inaccéssibilité à l'utilisateur.
+
+SEMAINE 7:
+    P9.1 :
+    - dessine_sur() est doit être une méthode polymorphique de la classe-mère Dessinable, puisque chaque sous-classe de Dessinable aura une façon différente d'être représentée.
+
+    P9.4 :
+    - La classe Systeme, pour l'instant, a un attribut privé (un vecteur contenant des tissus simples) et deux méthodes publiques; dessine_sur(), virtuelle et héritée de Dessinable / get_tissus(), l'accesseur de tissus.

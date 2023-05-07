@@ -1,10 +1,11 @@
-#include "tissuS.h"
-#include "masse.h"
-#include "vecteur3D.h"
-#include "ressort.h"
-#include "integrateur.h"
 #include <vector>
-#include <iostream>
+
+#include "vecteur3D.h"
+#include "masse.h"
+#include "ressort.h"
+#include "tissuS.h"
+#include "integrateur.h"
+
 
 using namespace std;
 
@@ -55,7 +56,7 @@ void TissuS::connecte_masses(){
         Ressort* r1 = new Ressort(r_temp.m_d, r_temp.m_a, r_temp.r, r_temp.l0);
         ressorts.push_back(r1);
     }
-    cout << check();
+    check();
 }
 
 void TissuS::maj_forces(){
@@ -71,3 +72,16 @@ void TissuS::evolve(double dt){
         i.evolve(*masse, dt);
     }
 }
+
+vector<Masse*> TissuS::get_masses() const{
+    return masses;
+}
+        
+vector<Ressort*> TissuS::get_ressorts() const{
+    return ressorts;
+}
+
+void TissuS::dessine_sur(SupportADessin& support){
+    support.dessine(*this);
+}
+

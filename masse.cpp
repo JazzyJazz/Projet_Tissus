@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+
 #include "vecteur3D.h"
 #include "masse.h"
 #include "ressort.h"
@@ -68,4 +69,8 @@ ostream& operator<<(ostream& s, Masse const& m){
 		s << elem << endl;
 	}
 	return s;
+}
+
+void Masse::dessine_sur(SupportADessin& support){
+	support.dessine(*this);
 }

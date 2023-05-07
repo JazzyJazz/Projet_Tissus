@@ -1,12 +1,17 @@
 #pragma once
+
 #ifndef MASSE_H
 #define MASSE_H
-#include "vecteur3D.h"
+
 #include <vector>
+
+#include "vecteur3D.h"
+#include "dessinable.h"
+
 
 class Ressort;
 
-class Masse{
+class Masse : public Dessinable{
 	private:
 		Vecteur3D position;
 		Vecteur3D vitesse;
@@ -46,8 +51,10 @@ class Masse{
 		bool operator==(Masse const&);
 
 		bool operator!=(Masse const&);
+
+		virtual void dessine_sur(SupportADessin&) override;
 };
 
-std::ostream& operator<<(std::ostream& s, Masse const& m);
+std::ostream& operator<<(std::ostream&, Masse const&);
 
 #endif

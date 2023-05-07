@@ -1,6 +1,7 @@
-#include "masse.h"
 #include "vecteur3D.h"
+#include "masse.h"
 #include "integrateur.h"
+
 using namespace std;
 
 void IntegrateurEulerCromer::evolve(Masse& m, double dt) const{

@@ -10,7 +10,7 @@ CXXFLAGS += -pedantic -Wall       # pour les purs et durs
 # CXXFLAGS += -g                  # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
-all: testTissuS
+all: testMasse
 
 #testV
 testV: testVecteur3D.o vecteur3D.o
@@ -21,12 +21,12 @@ testVecteur3D.o: testVecteur3D.cpp vecteur3D.h
 vecteur3D.o: vecteur3D.cpp vecteur3D.h
 
 #testM
-testM: testMasse.o vecteur3D.o masse.o ressort.o
-	$(CXX) -o testM testMasse.o vecteur3D.o masse.o ressort.o
+testM: testMasse.o vecteur3D.o masse.o ressort.o dessinable.o
+	$(CXX) -o testM testMasse.o vecteur3D.o masse.o ressort.o dessinable.o
 
 testMasse.o: testMasse.cpp vecteur3D.h masse.h ressort.h
 
-masse.o: masse.cpp vecteur3D.h masse.h ressort.h
+masse.o: masse.cpp vecteur3D.h masse.h ressort.h dessinable.h
 
 #testR
 testR: testRessort.o vecteur3D.o masse.o ressort.o
@@ -45,9 +45,17 @@ testIntegrateur3.o: testIntegrateur3.cpp vecteur3D.h masse.h ressort.h integrate
 integrateur.o: integrateur.cpp vecteur3D.h masse.h ressort.h integrateur.h
 
 #testTissu
-testTissuS: testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o
-	$(CXX) -o testTissuS testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o
+testTissuS: testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
+	$(CXX) -o testTissuS testTissuS.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
 
 testTissuS.o: testTissuS.cpp vecteur3D.h masse.h ressort.h tissuS.h
 
-tissuS.o: tissuS.cpp vecteur3D.h masse.h ressort.h integrateur.h tissuS.h
+tissuS.o: tissuS.cpp vecteur3D.h masse.h ressort.h integrateur.h tissuS.h dessinable.h
+
+#testSys
+testSys: testSys.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
+	$(CXX) -o testSys testSys.o vecteur3D.o masse.o ressort.o integrateur.o tissuS.o dessinable.o
+
+testSys.o: exerciceP9.cpp vecteur3D.h masse.h ressort.h tissuS.h dessinable.h
+
+dessinable.o: dessinable.cpp vecteur3D.h masse.h ressort.h integrateur.h tissuS.h

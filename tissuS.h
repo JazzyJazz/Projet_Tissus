@@ -1,11 +1,15 @@
 #pragma once
 
-#ifndef TISSU_S_H
-#define TISSU_S_H
-#include "masse.h"
-#include "vecteur3D.h"
-#include "ressort.h"
+#ifndef TISSUS_H
+#define TISSUS_H
+
 #include <vector>
+
+#include "vecteur3D.h"
+#include "masse.h"
+#include "ressort.h"
+#include "dessinable.h"
+
 
 struct Ressort_Temp{
     Masse* m_d;
@@ -15,7 +19,7 @@ struct Ressort_Temp{
     Ressort_Temp(Masse*, Masse*, double, double);
 };
 
-class TissuS{
+class TissuS : public Dessinable{
     private:
         std::vector<Masse*> masses;
         std::vector<Ressort*> ressorts;
@@ -33,6 +37,12 @@ class TissuS{
         void maj_forces();
 
         void evolve(double);
+
+        std::vector<Masse*> get_masses() const;
+
+        std::vector<Ressort*> get_ressorts() const;
+
+        virtual void dessine_sur(SupportADessin&) override;
 };
 
 #endif

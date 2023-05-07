@@ -1,6 +1,8 @@
 #pragma once
+
 #ifndef VECTEUR3D_H
 #define VECTEUR3D_H
+
 #include <vector>
 
 

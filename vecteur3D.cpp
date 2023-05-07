@@ -1,7 +1,9 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+
 #include "vecteur3D.h"
+
 using namespace std;
 
 
