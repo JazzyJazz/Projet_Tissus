@@ -42,9 +42,7 @@ ostream& operator<<(ostream& s, Ressort const& r){
 	s << "Ressort " << &r << " :" << endl;
 	s << r.get_k() << " # cst raideur" << endl;
 	s << r.get_l0() << " # longueur au repos" << endl;
-	s << "# masse depart : Masse " << r.get_masse_d() << ":" << endl;
-	s << *(r.get_masse_d());
-	s << "# masse arrivée : Masse " << r.get_masse_a() << ":" << endl;
-	s << *(r.get_masse_a());
+	s << "# masse depart : " << *(r.get_masse_d()) << endl;
+	s << "# masse arrivée : " << *(r.get_masse_a()) << endl;
 	return s;
 }

@@ -60,6 +60,7 @@ bool Masse::operator!=(Masse const& m1){
 }
 
 ostream& operator<<(ostream& s, Masse const& m){
+	s << "Masse " << &m << " : " << endl;
 	s << "- Masse : " << m.get_masse() << endl;
 	s << "- Coefficient : " << m.get_coeff() << endl;
 	s << "- Position : " << m.get_position() << endl;

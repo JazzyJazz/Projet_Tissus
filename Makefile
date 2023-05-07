@@ -10,7 +10,7 @@ CXXFLAGS += -pedantic -Wall       # pour les purs et durs
 # CXXFLAGS += -g                  # pour debugger
 # CXXFLAGS += -O2                 # pour optimiser la vitesse
 
-all: testM
+all: testSys
 
 #testV
 testV: testVecteur3D.o vecteur3D.o
@@ -56,7 +56,9 @@ testTissuS.o: testTissuS.cpp vecteur3D.h dessinable.h masse.h ressort.h tissuS.h
 tissuS.o: tissuS.cpp vecteur3D.h dessinable.h masse.h ressort.h integrateur.h tissuS.h
 
 #testSys
-testSys: testSys.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o
-	$(CXX) -o testSys testSys.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o 
+testSys: testSys.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o systeme.o
+	$(CXX) -o testSys testSys.o vecteur3D.o dessinable.o masse.o ressort.o integrateur.o tissuS.o systeme.o
 
-testSys.o: exerciceP9.cpp vecteur3D.h dessinable.h masse.h ressort.h tissuS.h
+testSys.o: testSys.cpp vecteur3D.h dessinable.h masse.h ressort.h tissuS.h systeme.h
+
+systeme.o: systeme.cpp vecteur3D.h dessinable.h masse.h ressort.h integrateur.h tissuS.h systeme.h

@@ -20,4 +20,8 @@ class Dessinable{
         virtual void dessine_sur(SupportADessin&) = 0;
 };
 
+class TextViewer : public SupportADessin{
+    
+};
+
 #endif
