@@ -4,46 +4,36 @@
 #include "glwidget.h"
 
 // ======================================================================
-void GLWidget::initializeGL()
-{
+void GLWidget::initializeGL(){
   vue.init();
   timerId = startTimer(20);
 }
 
 // ======================================================================
-void GLWidget::resizeGL(int width, int height)
-{
+void GLWidget::resizeGL(int width, int height){
   /* On commance par dire sur quelle partie de la 
    * fenêtre OpenGL doit dessiner.
-   * Ici on lui demande de dessiner sur toute la fenêtre.
-   */
+   * Ici on lui demande de dessiner sur toute la fenêtre. */
   glViewport(0, 0, width, height);
 
   /* Puis on modifie la matrice de projection du shader.
    * Pour ce faire on crée une matrice identité (constructeur 
    * par défaut), on la multiplie par la droite par une matrice
-   * de perspective.
-   * Plus de détail sur cette matrice
-   *     http://www.songho.ca/opengl/gl_projectionmatrix.html
-   * Puis on upload la matrice sur le shader à l'aide de la
-   * méthode de la classe VueOpenGL
-   */
+   * de perspective. */
+
   QMatrix4x4 matrice;
   matrice.perspective(70.0, qreal(width) / qreal(height ? height : 1.0), 1e-3, 1e5);
   vue.setProjection(matrice);
 }
 
 // ======================================================================
-void GLWidget::paintGL()
-{
+void GLWidget::paintGL(){
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   sys->dessine_sur(vue);
 }
 
-
 // ======================================================================
-void GLWidget::keyPressEvent(QKeyEvent* event)
-{
+void GLWidget::keyPressEvent(QKeyEvent* event){
   constexpr double petit_angle(5.0); // en degrés
   constexpr double petit_pas(1.0);
 
@@ -104,16 +94,15 @@ void GLWidget::keyPressEvent(QKeyEvent* event)
     break;
 
   case Qt::Key_Space:
-	pause();
-	break;
+	  pause();
+	  break;
   };
 
   update(); // redessine
 }
 
 // ======================================================================
-void GLWidget::timerEvent(QTimerEvent* event)
-{
+void GLWidget::timerEvent(QTimerEvent* event){
   Q_UNUSED(event);
 
   double dt = chronometre.restart() / 1000.0;
@@ -125,8 +114,7 @@ void GLWidget::timerEvent(QTimerEvent* event)
 }
 
 // ======================================================================
-void GLWidget::pause()
-{
+void GLWidget::pause(){
   if (timerId == 0) {
 	// dans ce cas le timer ne tourne pas alors on le lance
 	timerId = startTimer(20);

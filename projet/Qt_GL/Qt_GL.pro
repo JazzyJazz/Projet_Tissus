@@ -4,7 +4,7 @@ QMAKE_CXXFLAGS += -std=c++11
 win32:LIBS += -lopengl32
 
 
-TARGET = ex11
+TARGET = sim_tissu
 
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a
@@ -22,12 +22,13 @@ HEADERS += \
     vue_opengl.h \
     ../general/dessinable.h \
     ../general/support_a_dessin.h \
-    ../general/systeme.h \
+    ../general/vecteur3D.h \
     ../general/masse.h \
     ../general/tissuS.h \
     ../general/tissusGeo.h \
     ../general/contraintes.h \
-    ../general/vecteur3D.h
+    ../general/systeme.h \
+    
 
 RESOURCES += \
     resource.qrc
