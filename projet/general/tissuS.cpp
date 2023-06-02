@@ -12,8 +12,11 @@
 
 using namespace std;
 
+// Constructeur
 Ressort_Temp::Ressort_Temp(Masse* m1, Masse* m2, double r, double l0):m_d(m1),m_a(m2),r(r),l0(l0){}
 
+
+// Méthodes 
 bool TissuS::check(){
     for(Ressort* res : ressorts){
         if((*res).get_masse_d() == (*res).get_masse_a()){

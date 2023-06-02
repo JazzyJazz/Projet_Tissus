@@ -4,14 +4,16 @@
 
 using namespace std;
 
+// Constructeur
+IntegrateurNewmark::IntegrateurNewmark(double eps_):eps(eps_){}
+
+// Méthode evolve des intégrateurs 
 void IntegrateurEulerCromer::evolve(Masse& m, double dt) const{
     Vecteur3D pos = m.get_position();
     Vecteur3D vit = m.get_vitesse();
     m.set_vitesse(vit += m.acceleration()*dt);
     m.set_position(pos += vit*dt);
 }
-
-IntegrateurNewmark::IntegrateurNewmark(double eps_):eps(eps_){}
 
 void IntegrateurNewmark::evolve(Masse& m, double dt) const{
     Vecteur3D pos = m.get_position();

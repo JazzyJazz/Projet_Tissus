@@ -12,6 +12,7 @@
 
 using namespace std;
 
+// Méthodes
 TissuChaine::TissuChaine(double m_, double coeff_, double k_, double l0_, vector<Vecteur3D> positions_):TissuS(){
     for(Vecteur3D pos : positions_){
         Masse* m = new Masse(m_, pos, Vecteur3D(), coeff_);

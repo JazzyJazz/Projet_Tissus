@@ -32,7 +32,7 @@ void Masse::set_color_vit(bool b){col = b;}
 void Masse::add_ressort(Ressort* const& ressort){liste_ressort.push_back(ressort);}
 
 
-// Constructeurs
+// Constructeur
 Masse::Masse(double m, Vecteur3D pos, Vecteur3D vit, double coeffi, bool col_):position(pos), vitesse(vit), masse(abs(m)), coeff(coeffi), force_subie({0,0,-9.81*m}), col(col_){}
 
 // Méthodes
@@ -63,6 +63,11 @@ void Masse::statique(){
 	
 	ajoute_force(Vecteur3D(0,0,9.81*masse) - v);
 }
+
+void Masse::dessine_sur(SupportADessin& support){
+	support.dessine(*this);
+}
+
 // Surcharges 
 bool Masse::operator==(Masse const& m1){
 	if(masse == m1.get_masse() and position == m1.get_position() and vitesse == m1.get_vitesse() and coeff == m1.get_coeff() and force_subie == m1.get_force_subie() and liste_ressort == m1.get_ressorts()){
@@ -89,6 +94,4 @@ ostream& operator<<(ostream& s, Masse const& m){
 	return s;
 }
 
-void Masse::dessine_sur(SupportADessin& support){
-	support.dessine(*this);
-}
+
