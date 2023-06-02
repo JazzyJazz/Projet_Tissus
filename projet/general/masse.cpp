@@ -62,7 +62,7 @@ void Masse::statique(){
 	
 	ajoute_force(Vecteur3D(0,0,9.81*masse) - v);
 }
-
+//surcharges 
 bool Masse::operator==(Masse const& m1){
 	if(masse == m1.get_masse() and position == m1.get_position() and vitesse == m1.get_vitesse() and coeff == m1.get_coeff() and force_subie == m1.get_force_subie() and liste_ressort == m1.get_ressorts()){
 		return true;
