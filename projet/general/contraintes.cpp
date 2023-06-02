@@ -11,13 +11,17 @@
 
 using namespace std;
 
+// Conatructeurs
 Contrainte::Contrainte(Vecteur3D pos_, double ray_):pos(pos_),ray(ray_){}
+
+Crochet::Crochet(Vecteur3D pos_, double ray_):Contrainte(pos_, ray_){}
+
+ImpulsionSin::ImpulsionSin(Vecteur3D pos_, double ray_, double t_deb, double t_fin, Vecteur3D force_i, vector<TissuS*> tissus_, double freq_):Impulsion(pos_, ray_, t_deb, t_fin, force_i, tissus_),freq(freq_),f_i(force_i){}
+
 
 bool Contrainte::isIn(Masse* m_){
     return ((m_->get_position()-pos).norme() <= ray);
 }
-
-Crochet::Crochet(Vecteur3D pos_, double ray_):Contrainte(pos_, ray_){}
 
 void Crochet::appliquer(TissuS* tissu, double temps_){
     for(Masse* m : tissu->get_masses()){
@@ -40,8 +44,6 @@ void Impulsion::appliquer(TissuS* tissu, double temps_){
         }
     }
 }
-
-ImpulsionSin::ImpulsionSin(Vecteur3D pos_, double ray_, double t_deb, double t_fin, Vecteur3D force_i, vector<TissuS*> tissus_, double freq_):Impulsion(pos_, ray_, t_deb, t_fin, force_i, tissus_),freq(freq_),f_i(force_i){}
 
 void ImpulsionSin::appliquer(TissuS* tissu, double temps_){
     force = f_i * sin(2*M_PI*freq*(temps_ - t_i));

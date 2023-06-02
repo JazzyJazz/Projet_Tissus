@@ -12,6 +12,7 @@
 
 using namespace std;
 
+// Constructeur
 Systeme::Systeme(vector<TissuS*> tissus_):tissus(tissus_){}
 
 void Systeme::dessine_sur(SupportADessin& support){
@@ -26,6 +27,7 @@ void Systeme::add_tissu(TissuS* tissu){
     tissus.push_back(tissu);
 }
 
+// Surcharge
 ostream& operator<<(std::ostream& s, Systeme const& sys){
     string str_tissus(" tissus");
     if(sys.get_tissus().size() == 0){return s << "Le système est vide" << endl;}
@@ -51,6 +53,7 @@ ostream& operator<<(std::ostream& s, Systeme const& sys){
     return s;
 }
 
+// Méthodes
 void Systeme::evolue(double dt){
     temps += dt;
     for(TissuS* t : tissus){

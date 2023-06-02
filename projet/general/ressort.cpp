@@ -7,19 +7,19 @@
 
 using namespace std;
 
-//accsesseurs
+// Accsesseurs
 Masse* Ressort::get_masse_a() const{return masse_a;}
 Masse* Ressort::get_masse_d() const{return masse_d;}
 double Ressort::get_k() const{return k;}
 double Ressort::get_l0() const{return l0;}
 
-//constructeur
+// Constructeur
 Ressort::Ressort(Masse* D, Masse* A, double raideur, double longueur0):masse_d(D), masse_a(A), k(raideur), l0(longueur0){
 	D->add_ressort(this);
 	A->add_ressort(this);
 }
 
-//méthode
+// Méthodes
 Vecteur3D Ressort::force_rappel(Masse* const& m){
 	double distance;
 	double norme_force;
@@ -37,7 +37,7 @@ Vecteur3D Ressort::force_rappel(Masse* const& m){
 }
 
 
-//surcharge de l'opérateur affiche
+// Surcharge 
 ostream& operator<<(ostream& s, Ressort const& r){
 	s << "Ressort " << &r << " :" << endl;
 	s << r.get_k() << " # cst raideur" << endl;
