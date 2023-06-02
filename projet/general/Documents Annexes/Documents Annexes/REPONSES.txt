@@ -1,0 +1,49 @@
+
+ETAPE 1:
+    P1.1 :  
+    - Nous avons décidé de représenter nos vecteurs avec... ...des vecteurs. Pour nous, cette approche est la meilleure, car elle permet une gestion non seulement la plus facile, mais elle est aussi très bien adaptée à un changement dans un autre système de dimensions.
+    - Il y a un attribut central, le vecteur "vect", qui nous donne les variables des 3 dimensions. Il n'y a rien besoin de plus comme attributs pour représenter le vecteur3D.
+    - Il y a 4 méthodes; 
+        - La méthode set_coord(), qui prend un "unsigned int" et un "double", qui déterminent quelle dimension va être changée et la variable mise dans cette dimension du vecteur. Ceci est très pratique vu qu'on stocke nos valeurs dans un vecteur.
+        - La méthode affiche(), qui retourne juste de manière jolie les valeurs dans le vecteur.
+        - La méthode compare(), qui prend un Vecteur3D en paramètre, et qui boucle sur chaque dimension des vecteurs pour regarder si les valeurs sont les mêmes. Si elles ne le sont pas, les 2 vecteurs sont obligatoirement différents, sur nimporte quelle dimension !. La boucle est très pratique si l'on souhaite ajouter des dimensions, et évite du copiage de code.
+        - La méthode get_vect(), qui retourne simplement le vecteur. Ceci est besoin si on souhaite faire une bonne encapsulation du programme.
+    - Pour les droits d'accès, il y a juste le vecteur représentatif qui est privé (la méthode get_vect() est suffisante pour y accèder). Tout le reste est, de nature, publique, car il sert d'interface avec l'utilisateur.
+
+ETAPE 3:
+    P4.1 :
+    - Nous n'avons pas ajouté un constructeur de copie, car le constructeur de copie par défaut est suffisant dans notre cas (pas besoin de copie profonde)
+    
+    P4.2.a: 
+    - Pour que le programme soit le plus facile à manier, il faudrait ajouter des nouveaux attributs où l'on pourrait stocker les informations sur les 2 angles et la longeur du vecteur. On aurait donc deux définition différentes d'un vecteur, ce qui n'est vraiment pas pratique.
+    P4.2.b:
+    - Comme les angles et la longueur du vecteur sont des "double", le prototype du constructeur serait "Vecteur3D(double a1, double a2, double l)" (par exemple). Or, comme nous avons déjà un autre constructeur prenant 3 double en paramètre, on aurait deux définitons d'un constructeur, ce qui est impossible en C++. Il faudrait donc restreindre une des variables, ce qui nous permet pas de créer tous les vecteurs possibles.
+
+    P4.3 :
+    - Nous avons ajouté les opérateurs == (compare()) et != (inverse de ==) pour les vecteurs, et l'opérateur externe << (affiche()) pour pouvoir afficher facilement les vecteurs.
+    
+    
+    P5.1 :
+    - Nous avons créer un vector de la classe Ressort* (tableau de pointeurs sur les ressorts) pour facilement pouvoir stocker et utiliser tous les ressorts qui seront liés à la masse. Les pointeurs sont nécessaires pour pouvoir accèder aux ressorts eux-mêmes, et pas à une copie de ceux-ci.
+
+ETAPE 4:
+    P7.1 :
+    - La classe Integrateur est la classe mère de tous les intégrateurs que l'ont va créer. Ainsi, il doit avoir les caractéristiques des intégrateurs, une méthode evolve() (publique, virtuelle et polymorphique).
+
+    P7.2 :
+    - Comme dit précédement, la classe IntegrateurEulerCromer est héritée de la classe Integrateur.
+
+
+    P8.1 :
+    - Nous avons créé les méthodes publiques : connecte(), connecte_masses(), et la méthode privée check(). Les méthodes connecte() et connecte_masses() doivent être publiques si l'on veut ajouter des ressorts dans le tissu, et connecter les ressorts au masses lorsque l'utilisateur finit de créer tous ses ressorts. La méthode check() sera simplement utilisée pour vérifier le tissu originel, et ne sera pas réutilisé par la suite, d'où son inaccéssibilité à l'utilisateur.
+
+SEMAINE 7:
+    P9.1 :
+    - dessine_sur() est doit être une méthode polymorphique de la classe-mère Dessinable, puisque chaque sous-classe de Dessinable aura une façon différente d'être représentée.
+
+    P9.4 :
+    - La classe Systeme, pour l'instant, a un attribut privé (un vecteur contenant des tissus simples) et deux méthodes publiques; dessine_sur(), virtuelle et héritée de Dessinable / get_tissus(), l'accesseur de tissus.
+
+ETAPE 8:
+    P14.1 :
+    - Comment l'évolution du système se fait sur chaque tissu, nous pensons qu'il est mieux si l'on peut changer l'intégrateur (dynamiquement) au niveau du tissu lui même. Il faut maintenant simplement vérifier le numéro (index) de l'intégrateur, et créer un pas d'intégration avec l'intégrateur choisi (2 = Newark, 3 = RungeKutta4).

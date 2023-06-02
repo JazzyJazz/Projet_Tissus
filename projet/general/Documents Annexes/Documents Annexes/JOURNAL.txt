@@ -1,0 +1,34 @@
+Semaine 1 :
+- Lecture de la présentation du projet.
+- Création du Git et de tous les fichiers nécessaires.
+- Organisation et "répartition" (encore préquaire) des tâches à réaliser
+
+Semaine 2 :
+- Création des fichiers liés au Vecteur3D (Vecteur3D.cpp, Vecteur3D.h, testVecteur3D.cpp, Makefile)
+- Suivi des exercices, finition de la classe Vecteur3D
+- Remplissage des fichiers de construction et tests de la classe
+- Remplissage des réponses et de la conception
+
+Semaine 3 :
+- Déjà fait toutes les divisions en semaine 2, rien fait.
+
+Semaine 4 :
+- Adaptation de toutes les méthodes de Vecteur3D pour faire des opérateurs (plus simple d'utilisation) + tests
+- Remplissage des réponses et de la conception
+- 
+Semaine 5 : 
+- Création du code qui définit la class Masse et tous ces méthodes,attributs et opérateurs (Masse.h, masse.cpp, masse.o) et adaptation du Makefile.
+- Création du code qui définit la class Ressort et tous ces attributs,opérateurs et méthode (Ressort.h, Ressort.cpp, Ressort) et modification du Makefile.
+
+Semaine 11 : 
+- Rattrapage de la semaine 10; Créé tous les tissus géométriques. Nous avons hésité à les créer dans des fichiers différents, mais celà aurait seuelement contribué à allourdir le fichier .pro et le Makefile
+    -> Problème :  pour le TissuDisque, la dernière masse de l'avant dernière rangée de masses ne connectait pas à la dernière masse, mais au centre (d'indice 0). Cela venait de notre modulo, car la dernière masse est techinquement modulo 0. Il a donc fallu ajouter le +1 et -1.
+- Rattrapage de la semaine 10; Créé le tissu composé; Aussi dans le même fichier des tissus géométriques.
+    -> Problème : pour raccommodage, lorsqu'on a deux masses au même endroit, il y a une force "infinie" excercée par le ressort (ce qui met dans "nan" dans la postion). Pour éviter cela, nous avons décidé de décaller légèrement une des masses (de env. 2e-4) pour que la force soit un minimum cohérente.
+
+Semaine 12 : 
+- Rattrapage de la semaine 11; Créé les contraites Crochet, Impulsion et ImpulsionSin. Vu comment nous avons créé mise_a_jour_forces() de la classe Masse, une Impulsion sur un crochet fonctionne comme une Impulsion normale.
+- Rattrapage de la semaine 11; Créé 2 nouveaux Integrateurs, Newmark et RungeKutta. Il a fallu, pour cela, changer la façon dont un tissu récupère l'information de son integrateur.
+
+Semaine 13 : 
+- Création de quelques extensions
