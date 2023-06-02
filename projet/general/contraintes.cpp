@@ -18,7 +18,7 @@ Crochet::Crochet(Vecteur3D pos_, double ray_):Contrainte(pos_, ray_){}
 
 ImpulsionSin::ImpulsionSin(Vecteur3D pos_, double ray_, double t_deb, double t_fin, Vecteur3D force_i, vector<TissuS*> tissus_, double freq_):Impulsion(pos_, ray_, t_deb, t_fin, force_i, tissus_),freq(freq_),f_i(force_i){}
 
-
+// Méthodes
 bool Contrainte::isIn(Masse* m_){
     return ((m_->get_position()-pos).norme() <= ray);
 }
