@@ -7,7 +7,6 @@
 using namespace std;
 
 void TextViewer::dessine(Systeme const& a_dessiner){
-  flot << "Angle : " << a_dessiner.get_angle() << endl << endl;
   a_dessiner.affiche_masses();
 }
 
@@ -20,4 +19,3 @@ void TextViewer::dessine(TissuS const& a_dessiner){
     flot << *m << endl;
   } 
 }
-

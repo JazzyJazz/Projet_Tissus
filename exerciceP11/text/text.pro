@@ -14,11 +14,12 @@ SOURCES += \
     text_viewer.cc
 
 HEADERS += \
-    ../general/systeme.h \
     text_viewer.h \
     ../general/dessinable.h \
     ../general/support_a_dessin.h \
+    ../general/vecteur3D.h \
     ../general/masse.h \
     ../general/tissuS.h \
-    ../general/vecteur3D.h
+    ../general/systeme.h
+    
     

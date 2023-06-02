@@ -1,13 +1,16 @@
 #pragma once
 
 #include <iostream>
+
 #include "support_a_dessin.h"
+#include "masse.h"
+#include "tissuS.h"
+#include "systeme.h"
 
 class TextViewer : public SupportADessin {
 public:
- TextViewer(std::ostream& flot)
-    : flot(flot)
-  {}
+  
+  TextViewer(std::ostream& flot):flot(flot){}
   virtual ~TextViewer() = default;
   // on ne copie pas les TextViewer
   TextViewer(TextViewer const&)            = delete;
