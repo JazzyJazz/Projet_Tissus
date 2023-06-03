@@ -11,6 +11,8 @@ using namespace std;
 // EXERCICE
 
 int main(){
+
+	// Création de masses
     Masse* m1 = new Masse(0.33, Vecteur3D(0, 0, -3), Vecteur3D(), 0.3);
     Masse* m2 = new Masse(1, Vecteur3D(-0.5, 0, 0), Vecteur3D(), 0.3);
     Masse* m3 = new Masse(1, Vecteur3D(0.5, 0, 0), Vecteur3D(), 0.3);

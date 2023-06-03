@@ -11,6 +11,7 @@ using namespace std;
 // EXERCICE
 
 int main(){
+	//Création de masses 
     Masse* m1 = new Masse(0.33, Vecteur3D(0, 0, -3), Vecteur3D(), 0.3);
     Masse* m2 = new Masse(1, Vecteur3D(-0.5, 0, 0), Vecteur3D(), 0.3);
     Masse* m3 = new Masse(1, Vecteur3D(0.5, 0, 0), Vecteur3D(), 0.3);
@@ -29,7 +30,8 @@ int main(){
     Systeme sys = Systeme(tissus);
 
     cout << sys;
-
+	
+	//Evolution du système
     int i(0);
     double dt(0.1);
     while(((m1->get_vitesse()).norme() > 1e-5 or (m1->get_force_subie()).norme() > 1e-5) or i == 0){
