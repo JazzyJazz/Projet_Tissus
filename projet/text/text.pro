@@ -2,7 +2,7 @@ QMAKE_CXXFLAGS += -std=c++11
 
 CONFIG += console
 
-TARGET = exerciceP11
+TARGET = simText
 
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a

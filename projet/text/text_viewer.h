@@ -22,6 +22,8 @@ public:
 
   virtual void dessine(TissuS const& a_dessiner) override;
 
+  void evolue(Systeme& sys);
+
 private:
   std::ostream& flot;
 };

@@ -20,3 +20,13 @@ void TextViewer::dessine(TissuS const& a_dessiner){
   } 
 }
 
+void TextViewer::evolue(Systeme& sys){
+  double dt(0.01);
+  double t(0.0);
+  while(t < 120){
+    t += dt;
+    sys.evolue(0.01);
+    flot << endl << endl << "========== t = " << t << " ==========" << endl;
+    flot << sys << endl;
+  }
+}

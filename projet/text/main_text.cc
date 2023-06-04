@@ -7,10 +7,11 @@
 using namespace std;
 
 int main(){
-  TextViewer ecran(cout);
   Systeme sys;
 
   //A REMPLIR
+  TextViewer ecran(cout /* A MODIFIER */);
 
+  ecran.evolue(sys);
   return 0;
 }

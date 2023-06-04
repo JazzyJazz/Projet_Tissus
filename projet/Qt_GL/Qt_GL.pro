@@ -4,7 +4,7 @@ QMAKE_CXXFLAGS += -std=c++11
 win32:LIBS += -lopengl32
 
 
-TARGET = sim_tissu
+TARGET = simVisuel
 
 LIBS += -L../general -lgeneral
 PRE_TARGETDEPS += ../general/libgeneral.a
