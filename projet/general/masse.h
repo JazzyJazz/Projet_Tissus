@@ -3,12 +3,13 @@
 #ifndef MASSE_H
 #define MASSE_H
 
+#include <iostream>
 #include <vector>
 
 #include "vecteur3D.h"
 #include "dessinable.h"
 
-
+// "Forward declaration" de Ressort pour pouvoir l'utiliser dans Masse
 class Ressort;
 
 class Masse : public Dessinable{
@@ -32,18 +33,18 @@ class Masse : public Dessinable{
 		std::vector<Ressort*> const& get_ressorts() const;
 		bool color_vit() const;
 
+		// Manipulateurs
 		void set_position(Vecteur3D pos_);
 		void set_vitesse(Vecteur3D vit_);
 		void set_masse(double m_);
 		void set_coeff(double c_);
 		void set_color_vit(bool b);
 		void add_ressort(Ressort* const& res);
-		// modifier les autres valeurs n'a pas de sens
+		// (modifier les autres valeurs n'a pas de sens)
 
 		// Constructeurs
 		Masse(double m_, Vecteur3D pos = Vecteur3D(), Vecteur3D vit = Vecteur3D(), double coeff = 0, bool col_ = true);
 		Masse(Masse&) = delete;
-		Masse(Masse&&) = delete;
 		virtual ~Masse() = default;
 
 		// Méthodes
@@ -56,13 +57,13 @@ class Masse : public Dessinable{
 		void statique();
 
 		//Opérateurs logiques
-		bool operator==(Masse const&);
+		bool operator==(Masse const& m1);
 
-		bool operator!=(Masse const&);
+		bool operator!=(Masse const& m1);
 
 		virtual void dessine_sur(SupportADessin& support) override;
 };
 
-std::ostream& operator<<(std::ostream&, Masse const&);
+std::ostream& operator<<(std::ostream& s, Masse const& m1);
 
 #endif

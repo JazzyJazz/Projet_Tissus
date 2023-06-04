@@ -16,17 +16,13 @@ double Masse::get_masse() const {return masse;}
 double Masse::get_coeff() const {return coeff;}
 Vecteur3D Masse::get_force_subie() const {return force_subie;}
 vector<Ressort*> const& Masse::get_ressorts() const {return liste_ressort;}
+bool Masse::color_vit() const {return col;}
 
 // Manimulateurs 
 void Masse::set_position(Vecteur3D pos_){position = pos_;}
 void Masse::set_vitesse(Vecteur3D vit_){vitesse = vit_;}
-void Masse::set_masse(double m_){
-	if (m_ > 0){masse = m_;}
-}
-void Masse::set_coeff(double c_){
-	if (c_ > 0){coeff = c_;}
-}
-bool Masse::color_vit() const {return col;}
+void Masse::set_masse(double m_){if (m_ > 0){masse = m_;}}
+void Masse::set_coeff(double c_){if (c_ > 0){coeff = c_;}}
 void Masse::set_color_vit(bool b){col = b;}
 
 void Masse::add_ressort(Ressort* const& ressort){liste_ressort.push_back(ressort);}
@@ -46,9 +42,11 @@ Vecteur3D Masse::acceleration(){
 
 void Masse::mise_a_jour_forces(){
 	Vecteur3D v = Vecteur3D();
+	// Somme des forces de rappel des ressorts
 	for (auto& elem : liste_ressort) {
 		v += elem->force_rappel(this);
 	}
+	// Addition avec m*g, et le frottement
 	force_subie = v + Vecteur3D(0,0,-9.81*masse)-(coeff*vitesse) + force_add;
 	force_add = Vecteur3D();
 }
@@ -57,6 +55,7 @@ void Masse::statique(){
 	vitesse = Vecteur3D();
 	
 	Vecteur3D v = Vecteur3D();
+	// On ajoute la force des ressorts, dans l'autre sens pour que m aie une force appliquée nulle
 	for (auto& elem : liste_ressort) {
 		v += elem->force_rappel(this);
 	}
@@ -86,12 +85,10 @@ ostream& operator<<(ostream& s, Masse const& m){
 	s << "- Coefficient : " << m.get_coeff() << endl;
 	s << "- Position : " << m.get_position() << endl;
 	s << "- Vitesse : " << m.get_vitesse() << endl;
-	s << "- Résultante des forces" << m.get_force_subie() << endl;
+	s << "- Résultante des forces : " << m.get_force_subie() << endl;
 	s << "- Ressorts : " << (m.get_ressorts()).size() << endl;
 	for (auto& elem : m.get_ressorts()) {
 		s << elem << endl;
 	}
 	return s;
 }
-
-

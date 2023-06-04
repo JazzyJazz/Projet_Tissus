@@ -15,9 +15,9 @@ SOURCES = \
 
 
 HEADERS += \
-    vecteur3D.h \
     dessinable.h \
     support_a_dessin.h \
+    vecteur3D.h \
     masse.h \
     ressort.h \
     integrateur.h \

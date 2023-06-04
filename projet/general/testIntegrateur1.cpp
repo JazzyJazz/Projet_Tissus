@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// TEST
+
 int main(){
     IntegrateurEulerCromer i;
     Masse m(0.127, Vecteur3D(0, 0, 1), Vecteur3D(1, 0, 2));

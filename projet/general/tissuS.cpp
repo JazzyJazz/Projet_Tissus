@@ -12,9 +12,8 @@
 
 using namespace std;
 
-// Constructeur
+// Constructeur de ressorts temporaires
 Ressort_Temp::Ressort_Temp(Masse* m1, Masse* m2, double r, double l0):m_d(m1),m_a(m2),r(r),l0(l0){}
-
 
 // Méthodes 
 bool TissuS::check(){
@@ -47,6 +46,7 @@ bool TissuS::check(){
     return true;
 }
 
+// Constructeurs
 TissuS::TissuS(vector<Masse*> ms):masses(ms){i = 1;}
 
 TissuS::TissuS(TissuS& tissu){
@@ -61,7 +61,9 @@ TissuS::TissuS(TissuS& tissu){
     i = tissu.get_integrateur();
 }
 
+// Méthodes
 void TissuS::connecte(unsigned int n1, unsigned int n2, double raideur, double l0){
+    // Connecte deux masses, stockage dans un ressort temporaire
     if(n1 > masses.size()-1 or n2 > masses.size()-1){
         return;
     }
@@ -69,6 +71,7 @@ void TissuS::connecte(unsigned int n1, unsigned int n2, double raideur, double l
 }
 
 void TissuS::connecte_masses(){
+    // Ressort temporaires -> Ressorts
     for(Ressort_Temp r_temp : ressorts_temp){
         Ressort* r1 = new Ressort(r_temp.m_d, r_temp.m_a, r_temp.r, r_temp.l0);
         ressorts.push_back(r1);
@@ -82,6 +85,7 @@ void TissuS::maj_forces(){
 }
 
 void TissuS::evolve(double dt){
+    // Choix de l'integrateur -> 2 = Newmark, 3 = RungeKutta
     maj_forces();
     for(Masse* masse : masses){
         switch(i){
@@ -104,10 +108,11 @@ void TissuS::evolve(double dt){
     }
 }
 
-void TissuS::set_integrateur(int i_){
-    i = i_;
+void TissuS::dessine_sur(SupportADessin& support){
+    support.dessine(*this);
 }
 
+// Accesseurs
 vector<Masse*> TissuS::get_masses() const{
     return masses;
 }
@@ -120,12 +125,13 @@ int TissuS::get_integrateur() const{
     return i;
 }
 
+// Manipulateurs
+void TissuS::set_integrateur(int i_){
+    i = i_;
+}
+
 void TissuS::set_color_vit(bool b){
     for(Masse* m : masses){
         m->set_color_vit(b);
     }
-}
-
-void TissuS::dessine_sur(SupportADessin& support){
-    support.dessine(*this);
 }

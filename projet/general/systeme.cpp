@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include <cmath>
 
 #include "dessinable.h"
@@ -7,24 +8,26 @@
 #include "masse.h"
 #include "ressort.h"
 #include "tissuS.h"
-#include "systeme.h"
 #include "contraintes.h"
+#include "systeme.h"
 
 using namespace std;
 
 // Constructeur
 Systeme::Systeme(vector<TissuS*> tissus_):tissus(tissus_){}
 
-void Systeme::dessine_sur(SupportADessin& support){
-    support.dessine(*this);
-}
-
+// Accesseurs
 std::vector<TissuS*> Systeme::get_tissus() const{
     return tissus;
 }
 
+// Manipulateurs
 void Systeme::add_tissu(TissuS* tissu){
     tissus.push_back(tissu);
+}
+
+void Systeme::add_contrainte(Contrainte* c){
+    contraintes.push_back(c);
 }
 
 // Surcharge
@@ -54,8 +57,13 @@ ostream& operator<<(std::ostream& s, Systeme const& sys){
 }
 
 // Méthodes
+void Systeme::dessine_sur(SupportADessin& support){
+    support.dessine(*this);
+}
+
 void Systeme::evolue(double dt){
     temps += dt;
+    // On fait évoluer le système en appliquant les contraites et en faisant évoluer les tissus
     for(TissuS* t : tissus){
         for(Contrainte* c : contraintes){
             c->appliquer(t, temps);
@@ -66,19 +74,17 @@ void Systeme::evolue(double dt){
 
 void Systeme::affiche_masses(ostream& flot) const{
     for(TissuS* t : tissus){
-        flot << " --- TISSU " << t << " --- " << endl << endl;
+        flot << " --- TISSU " << t << " --- " << endl;
         for(Masse* m : t->get_masses()){
             flot << *m << endl;
         }
+        flot << endl;
     }
-}
-
-void Systeme::add_contrainte(Contrainte* c){
-    contraintes.push_back(c);
 }
 
 double Systeme::get_energy() const{
     double E;
+    // Energie totale = Energie potentielle (pesanteur + élastique) + Energie cinétique
     for(TissuS* t : tissus){
         for(Masse* m : t->get_masses()){
             E += (m->get_vitesse())*(m->get_vitesse())*m->get_masse()/2;

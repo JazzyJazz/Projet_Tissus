@@ -21,11 +21,11 @@ int main(){
 
     vect3 = vect1;
 
-    cout << vect1 << " + " << vect2 << " = ";
+    cout << vect1 << " + " << vect2 << " = " << endl;
 
     vect2 += vect1;
 
-    cout << vect2;
+    cout << vect2 << endl;
 
     return 0;
 }

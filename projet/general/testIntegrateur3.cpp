@@ -8,6 +8,8 @@
 
 using namespace std;
 
+// TEST (avant la méthode statique())
+
 int main(){
     IntegrateurEulerCromer i;
     Masse* m1 = new Masse(0.33, Vecteur3D(0, 0, -3), Vecteur3D(), 0.3);

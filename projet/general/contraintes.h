@@ -5,11 +5,8 @@
 
 #include <vector>
 
-#include "dessinable.h"
 #include "vecteur3D.h"
-#include "support_a_dessin.h"
 #include "masse.h"
-#include "ressort.h"
 #include "tissuS.h"
 
 class Contrainte{
@@ -17,18 +14,23 @@ class Contrainte{
         Vecteur3D pos;
         double ray;
         bool isIn(Masse* m_);
+
     public:
+        // Constructeurs et destructeurs
         Contrainte(Vecteur3D pos_, double ray_);
 
-        virtual void appliquer(TissuS* tissu, double temps_) = 0;
-
         virtual ~Contrainte() = default;
+
+        // Méthodes
+        virtual void appliquer(TissuS* tissu, double temps_) = 0;
 };
 
 class Crochet : public Contrainte{
     public:
+        // Constructeur et destructeurs
         Crochet(Vecteur3D pos_, double ray_);
 
+        // Méthodes
         virtual void appliquer(TissuS* tissu, double temps_) override;
 };
 
@@ -38,9 +40,12 @@ class Impulsion : public Contrainte{
         double t_f;
         Vecteur3D force;
         std::vector<Masse*> masses;
+
     public:
+        // Constructeur et destructeurs
         Impulsion(Vecteur3D pos_, double ray_, double t_deb, double t_fin, Vecteur3D force_, std::vector<TissuS*> tissus_);
 
+        // Méthodes
         virtual void appliquer(TissuS* tissu, double temps_) override;
 };
 
@@ -48,9 +53,12 @@ class ImpulsionSin : public Impulsion{
     private:
         double freq;
         Vecteur3D f_i;
+
     public:
+        // Constructeur et destructeurs
         ImpulsionSin(Vecteur3D pos_, double ray_, double t_deb, double t_fin, Vecteur3D force_i, std::vector<TissuS*> tissus_, double freq_);
 
+        // Méthodes
         virtual void appliquer(TissuS* tissu, double temps_) override;
 };
 

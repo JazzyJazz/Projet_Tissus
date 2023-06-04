@@ -8,6 +8,8 @@
 
 using namespace std;
 
+// TEST
+
 int main(){
     vector<Masse*> masses;
     masses.push_back(new Masse(1));
@@ -20,5 +22,10 @@ int main(){
     tissu.connecte(2, 0, 1.25, 0.5);
     tissu.connecte_masses();
     tissu.evolve(0.1);
+
+    for(Masse* m : masses){
+        cout << *m << endl;
+    }
+    
     return 0;
 }

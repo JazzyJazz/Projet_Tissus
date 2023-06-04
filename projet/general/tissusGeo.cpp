@@ -12,7 +12,7 @@
 
 using namespace std;
 
-// Méthodes
+// Constructeurs
 TissuChaine::TissuChaine(double m_, double coeff_, double k_, double l0_, vector<Vecteur3D> positions_):TissuS(){
     for(Vecteur3D pos : positions_){
         Masse* m = new Masse(m_, pos, Vecteur3D(), coeff_);
@@ -110,6 +110,7 @@ TissuCompose::TissuCompose(vector<TissuS*> tissus, double k_, double eps_):Tissu
     }
 }
 
+// Méthode raccommode()
 void TissuCompose::raccommode(){
     for(int i(0); i < masses.size(); i++){
         for(int j(0); j < masses.size(); j++){

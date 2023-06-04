@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// TEST
+
 int main(){
     Masse* m1 = new Masse(1);
     Masse* m2 = new Masse(2);
