@@ -44,7 +44,7 @@ Vecteur3D Ressort::force_rappel(Masse* const& m){
 ostream& operator<<(ostream& s, Ressort const& r){
 	s << "Ressort " << &r << " :" << endl;
 	s << " - Constante de raideur : " << r.get_k() << endl;
-	s << " - Longueur au repos : " << r.get_l0() <<  << endl;
+	s << " - Longueur au repos : " << r.get_l0() << endl;
 	s << "# Masse depart : " << *(r.get_masse_d()) << endl;
 	s << "# Masse arrivée : " << *(r.get_masse_a()) << endl;
 	return s;

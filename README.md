@@ -1,5 +1,8 @@
 # Projet_Tissus
 Projet Informatique Semestre 2
+- 1) Nous avons fait tout ce qui est demandé + quelques extentions
+- 2) Oui, avec Qt
+- 3) 1.5-2h par semaine en total par personne (surtout la partie graphique très longue)
 
 Notre projet vise à simuler une évolution dans l'espace d'un, ou plusieurs, tissus en C++. Les tissus, dans notre programme, sont représentées par des masses, connectées entre elles par des ressorts. Cette représentation est assez réaliste, car des tissus sont une vaste collections (d'environ de 10^23) de molécules et donc d'atomes, connectés entre eux par des liens atomiques, qui se rapprochent de liens élastiques. Nous avons ainsi créé des classes et des fonctions en C++ pour nous aider à représenter et à faire évoluer ce tissu.
 

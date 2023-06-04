@@ -158,7 +158,7 @@ void GLWidget::draw_energy(){
 }
 
 // ======================================================================
-void GLWidget::set_sys(const Systeme& sys_){
+void GLWidget::set_sys(Systeme& sys_){
   // On met le système choisi comme système à dessiner.
   sys = &sys_;
 }
