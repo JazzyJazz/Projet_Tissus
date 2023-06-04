@@ -69,7 +69,7 @@ void Masse::dessine_sur(SupportADessin& support){
 
 // Surcharges 
 bool Masse::operator==(Masse const& m1){
-	if(masse == m1.get_masse() and position == m1.get_position() and vitesse == m1.get_vitesse() and coeff == m1.get_coeff() and force_subie == m1.get_force_subie() and liste_ressort == m1.get_ressorts()){
+	if(masse - m1.get_masse() < 1e-10 and position == m1.get_position() and vitesse == m1.get_vitesse() and coeff - m1.get_coeff() < 1e-10 and force_subie == m1.get_force_subie() and liste_ressort == m1.get_ressorts()){
 		return true;
 	}
 	return false;

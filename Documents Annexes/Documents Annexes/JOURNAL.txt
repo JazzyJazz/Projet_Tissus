@@ -15,16 +15,43 @@ Semaine 3 :
 Semaine 4 :
 - Adaptation de toutes les méthodes de Vecteur3D pour faire des opérateurs (plus simple d'utilisation) + tests
 - Remplissage des réponses et de la conception
-- 
+
 Semaine 5 : 
-- Création du code qui définit la class Masse et tous ces méthodes,attributs et opérateurs (Masse.h, masse.cpp, masse.o) et adaptation du Makefile.
-- Création du code qui définit la class Ressort et tous ces attributs,opérateurs et méthode (Ressort.h, Ressort.cpp, Ressort) et modification du Makefile.
+- Création du code qui définit la class Masse et tous ses méthodes, attributs et opérateurs (Masse.h, masse.cpp, masse.o) et adaptation du Makefile.
+- Création du code qui définit la class Ressort et tous ses attributs, opérateurs et méthodes (Ressort.h, Ressort.cpp, Ressort) et modification du Makefile.
+- Début du code de l'intégrateur d'Euler-Cromer
+
+Semaine 6 :
+- Finition de l'intégrateur d'Euler-Cromer + création des fichiers de tests + adaptation du Makefile
+- Adaptation du code pour utiliser des pointeurs sur les masses et les ressorts à la place de tableaux de références constantes de celles-ci.
+
+Semaine 7 :
+- Création du code qui définit la classe TissuS et tous ses attributs, méthodes (tissuS.h, tissuS.cpp, tissuS.o) et adaptation du Makefile
+
+Semaine 8 :
+- Inclusion des classes Dessinable et SupportADessin dans le programme; 
+- Création du code qui définit la classe Systeme et tous ses attributs et méthodes.
+
+Semaine 9 :
+- Introduction à la partie graphique
+- Essais d'installer Qt sur nos ordinateurs.
+    -> Problème : Sur nos ordinateurs personnels, sur laquelle nous avions fait tout le projet, nous n'arrivions pas à installer Qt correctement.
+                  Cela nous a pris énormément de temps à 
+                  Nous avons ainsi dû décaller tout le projet sur les VMs, et s'adapter au nouvel environnement.
+
+Semaine 10 :
+- Nouveaux essais d'installer Qt et OpenGL sur nos ordinateurs.
+- Abandon de l'installation de Qt, transition sur les VMs de l'EPFL.
+- Rattrapage de la semaine 9 : Adaptation pour la partie graphique
 
 Semaine 11 : 
 - Rattrapage de la semaine 10; Créé tous les tissus géométriques. Nous avons hésité à les créer dans des fichiers différents, mais celà aurait seuelement contribué à allourdir le fichier .pro et le Makefile
-    -> Problème :  pour le TissuDisque, la dernière masse de l'avant dernière rangée de masses ne connectait pas à la dernière masse, mais au centre (d'indice 0). Cela venait de notre modulo, car la dernière masse est techinquement modulo 0. Il a donc fallu ajouter le +1 et -1.
+    -> Problème : Pour le TissuDisque, la dernière masse de l'avant dernière rangée de masses ne connectait pas à la dernière masse, mais au centre (d'indice 0). 
+                  Cela venait de notre modulo, car la dernière masse est techinquement modulo 0. Il a donc fallu ajouter le +1 et -1.
+
 - Rattrapage de la semaine 10; Créé le tissu composé; Aussi dans le même fichier des tissus géométriques.
-    -> Problème : pour raccommodage, lorsqu'on a deux masses au même endroit, il y a une force "infinie" excercée par le ressort (ce qui met dans "nan" dans la postion). Pour éviter cela, nous avons décidé de décaller légèrement une des masses (de env. 2e-4) pour que la force soit un minimum cohérente.
+    -> Problème : Pour raccommodage, lorsqu'on a deux masses au même endroit, il y a une force "infinie" excercée par le ressort (ce qui met dans "nan" dans la postion). 
+                  Pour éviter cela, nous avons décidé de décaller légèrement une des masses (de env. 2e-4) pour que la force soit un minimum cohérente.
 
 Semaine 12 : 
 - Rattrapage de la semaine 11; Créé les contraites Crochet, Impulsion et ImpulsionSin. Vu comment nous avons créé mise_a_jour_forces() de la classe Masse, une Impulsion sur un crochet fonctionne comme une Impulsion normale.
@@ -32,3 +59,4 @@ Semaine 12 :
 
 Semaine 13 : 
 - Création de quelques extensions
+- Rédaction du README, compétion des autres fichiers annexes.

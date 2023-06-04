@@ -1,1 +1,65 @@
-oups il y a rien ici ;(
+#===== VECTEUR3D =====#
+Vecteur3D: pas d'héritage particulier / "outil" pour aider à travailler en 3D
+
+#===== DESSINABLE =====#
+Dessinable: base pour toutes les classes dessinables sur un support.
+    -> Parent de : Masse, TissuS, Systeme
+
+#===== SUPPORTADESSIN =====#
+SupportADessin: base pour tous les supports sur lesquels on peut dessiner.
+    -> Parent de : GLWidget, TextViewer
+
+#===== MASSE =====#
+Masse: classe qui décrit tout ce qui est lié aux masses.
+    -> Héritée de : Dessinable
+
+#===== RESSORT =====#
+Ressort: classe qui décrit tout ce qui est lié aux ressorts. 
+    -> Pas d'héritage particulier (pas héritée de Dessinable car nous jugeons inutile qu'un ressort soit "dessinable", trop de code à rajouter et à adapter)
+
+#===== INTEGRATEUR =====#
+Integrateur: base pour tous les intégrateurs.
+    -> Parent de : IntegrateurEulerCromer, IntegrateurNewmark, IntegrateurRungeKutta
+
+#===== AUTRES INTEGRATEURS =====#
+Autres Integrateurs: classes qui ont spécifiquement des méthodes qui font évoluer les Masses différement.
+    -> Héritées de : Integrateur
+
+#===== TISSU =====#
+TissuS: base qui décrit tous les tissus, et leurs méthode pricipales.
+    -> Héritée de : Dessinable
+    -> Parent de : TissuChaine, TissuRectangle, TissuDisque
+
+#===== AUTRES TISSUS =====#
+Autres Tissus: classes qui décrivent des tissus spécifiques, qui ont des organisations différentes.
+    -> Héritées de : TissuS
+
+#===== CONTRAINTE =====#
+Contrainte: base pour toutes les contraintes.
+    -> Parent de : Crochet, Impulsion
+
+#===== CROCHET =====#
+Crochet: classe qui décrit une contrainte spécifique qui imobilise une Masse.
+    -> Héritée de : Contrainte 
+
+#===== IMPULSION =====#
+Impulsion: classe qui décrit une contrainte spécifique qui donne une impulsion à une Masse.
+    -> Héritée de : Contrainte
+    -> Parent de : ImpulsionSin
+
+#===== IMPULSIONSIN =====#
+ImpulsionSin: classe qui décrit une impulsion spécifique, une impulsion dont le module dépend d'une fonction sinusoidale.
+    -> Héritée de : Impulsion
+
+#===== SYSTEME =====#
+Systeme: classe qui décrit un système, composé de plusieurs tissus.
+    -> Héritée de : Dessinable
+
+#===== GLWIDGET =====#
+GLWidget: classe qui permet de dessiner un Dessinable sur une fenêtre OpenGL/Qt.
+    -> Héritée de : SupportADessin
+
+#===== TEXTVIEWER =====#
+TextViewer: classe qui permet de dessiner un Dessinable sur un flot (=> terminal ou fichier).
+    -> Héritée de : SupportADessin
+

@@ -57,7 +57,7 @@ Vecteur3D operator*(double a, Vecteur3D const& Vect2){
 
 bool Vecteur3D::operator==(Vecteur3D Vect2) const{
     for(size_t i(0); i < vect.size(); i++){
-        if(vect[i] != Vect2.get_vect()[i]){
+        if(vect[i] - Vect2.get_vect()[i] > 1e-10){
             return false;
         }
     }
