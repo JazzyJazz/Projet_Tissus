@@ -7,30 +7,34 @@ Semaine 2 :
 - Création des fichiers liés au Vecteur3D (Vecteur3D.cpp, Vecteur3D.h, testVecteur3D.cpp, Makefile)
 - Suivi des exercices, finition de la classe Vecteur3D
 - Remplissage des fichiers de construction et tests de la classe
-- Remplissage des réponses et de la conception
+- Remplissage des réponses
 
 Semaine 3 :
 - Déjà fait toutes les divisions en semaine 2, rien fait.
 
 Semaine 4 :
 - Adaptation de toutes les méthodes de Vecteur3D pour faire des opérateurs (plus simple d'utilisation) + tests
-- Remplissage des réponses et de la conception
+- Remplissage des réponses et conception
 
 Semaine 5 : 
 - Création du code qui définit la class Masse et tous ses méthodes, attributs et opérateurs (Masse.h, masse.cpp, masse.o) et adaptation du Makefile.
 - Création du code qui définit la class Ressort et tous ses attributs, opérateurs et méthodes (Ressort.h, Ressort.cpp, Ressort) et modification du Makefile.
 - Début du code de l'intégrateur d'Euler-Cromer
+- Remplissage des réponses et conception
 
 Semaine 6 :
 - Finition de l'intégrateur d'Euler-Cromer + création des fichiers de tests + adaptation du Makefile
 - Adaptation du code pour utiliser des pointeurs sur les masses et les ressorts à la place de tableaux de références constantes de celles-ci.
+- Remplissage des réponses et conception
 
 Semaine 7 :
 - Création du code qui définit la classe TissuS et tous ses attributs, méthodes (tissuS.h, tissuS.cpp, tissuS.o) et adaptation du Makefile
+- Remplissage des réponses et conception
 
 Semaine 8 :
 - Inclusion des classes Dessinable et SupportADessin dans le programme; 
 - Création du code qui définit la classe Systeme et tous ses attributs et méthodes.
+- Remplissage des réponses et conception
 
 Semaine 9 :
 - Introduction à la partie graphique
@@ -43,6 +47,7 @@ Semaine 10 :
 - Nouveaux essais d'installer Qt et OpenGL sur nos ordinateurs.
 - Abandon de l'installation de Qt, transition sur les VMs de l'EPFL.
 - Rattrapage de la semaine 9 : Adaptation pour la partie graphique
+- Remplissage des réponses
 
 Semaine 11 : 
 - Rattrapage de la semaine 10; Créé tous les tissus géométriques. Nous avons hésité à les créer dans des fichiers différents, mais celà aurait seuelement contribué à allourdir le fichier .pro et le Makefile
@@ -52,10 +57,12 @@ Semaine 11 :
 - Rattrapage de la semaine 10; Créé le tissu composé; Aussi dans le même fichier des tissus géométriques.
     -> Problème : Pour raccommodage, lorsqu'on a deux masses au même endroit, il y a une force "infinie" excercée par le ressort (ce qui met dans "nan" dans la postion). 
                   Pour éviter cela, nous avons décidé de décaller légèrement une des masses (de env. 2e-4) pour que la force soit un minimum cohérente.
+- Remplissage des réponses et conception
 
 Semaine 12 : 
 - Rattrapage de la semaine 11; Créé les contraites Crochet, Impulsion et ImpulsionSin. Vu comment nous avons créé mise_a_jour_forces() de la classe Masse, une Impulsion sur un crochet fonctionne comme une Impulsion normale.
 - Rattrapage de la semaine 11; Créé 2 nouveaux Integrateurs, Newmark et RungeKutta. Il a fallu, pour cela, changer la façon dont un tissu récupère l'information de son integrateur.
+- Remplissage des réponses et conception
 
 Semaine 13 : 
 - Création de quelques extensions
