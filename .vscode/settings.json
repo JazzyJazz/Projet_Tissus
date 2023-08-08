@@ -59,7 +59,6 @@
         "string": "cpp",
         "string_view": "cpp",
         "system_error": "cpp",
-        "tuple": "cpp",
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "unordered_map": "cpp",
